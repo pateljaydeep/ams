@@ -1,45 +1,51 @@
 <h1>Listing assets</h1>
 
-<table>
-  <tr>
-    <th>Asset</th>
-    <th>Manufacturer</th>
-    <th>Asset type</th>
-    <th>Description</th>
-    <th>Purchase date</th>
-    <th>Release date</th>
-    <th>Asset image</th>
-    <th>Asset documents</th>
-    <th>Serial number</th>
-    <th>Model</th>
-    <th>Make year</th>
-    <th>Display size</th>
-    <th>Operating system</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="asset_table">
+	
+	<thead>
+	  <tr>
+		<th>Asset</th>
+		<th>Manufacturer</th>
+		<th>Asset type</th>
+		<th>Description</th>
+		<th>Purchase date</th>
+		<th>Release date</th>
+		<th>Asset image</th>
+		<th>Asset documents</th>
+		<th>Serial number</th>
+		<th>Model</th>
+		<th>Make year</th>
+		<th>Display size</th>
+		<th>Operating system</th>
+		<th></th>
+		<th></th>
+		<th></th>
+	  </tr>
+	</thead>
+	<tbody>
+	<% @assets.each do |asset| %>
+	  <tr>
+	    <td><%= asset.asset_id %></td>
+	    <td><%= asset.manufacturer %></td>
+	    <td><%= asset.asset_type_id %></td>
+	    <td><%= asset.description %></td>
+	    <td><%= asset.purchase_date %></td>
+	    <td><%= asset.release_date %></td>
+	    <td><%= asset.asset_image %></td>
+	    <td><%= asset.asset_documents %></td>
+	    <td><%= asset.serial_number %></td>
+	    <td><%= asset.model %></td>
+	    <td><%= asset.make_year %></td>
+	    <td><%= asset.display_size %></td>
+	    <td><%= asset.operating_system %></td>
+	    <td><%= link_to 'Show', asset %></td>
+	    <td><%= link_to 'Edit', edit_asset_path(asset) %></td>
+	    <td><%= link_to 'Destroy', asset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	  </tr>
+	<% end %>
+	
+	</tbody>
 
-<% @assets.each do |asset| %>
-  <tr>
-    <td><%= asset.asset_id %></td>
-    <td><%= asset.manufacturer %></td>
-    <td><%= asset.asset_type_id %></td>
-    <td><%= asset.description %></td>
-    <td><%= asset.purchase_date %></td>
-    <td><%= asset.release_date %></td>
-    <td><%= asset.asset_image %></td>
-    <td><%= asset.asset_documents %></td>
-    <td><%= asset.serial_number %></td>
-    <td><%= asset.model %></td>
-    <td><%= asset.make_year %></td>
-    <td><%= asset.display_size %></td>
-    <td><%= asset.operating_system %></td>
-    <td><%= link_to 'Show', asset %></td>
-    <td><%= link_to 'Edit', edit_asset_path(asset) %></td>
-    <td><%= link_to 'Destroy', asset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
 </table>
 
 <br />

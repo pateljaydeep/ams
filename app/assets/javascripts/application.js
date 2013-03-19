@@ -13,3 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require jquery-ui
+//= require dataTables/jquery.dataTables
+
+
+$(document).ready(function() {
+    $('#asset_table').dataTable({
+    	"bJQueryUI": true,
+        "sPaginationType": "full_numbers"	
+    });
+} );

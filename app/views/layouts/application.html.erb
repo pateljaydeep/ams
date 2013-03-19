@@ -1,15 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Ams</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <link rel="shortcut icon" type="image/x-icon" href="assets/rearden.ico"/>
-</head>
-<body>
+	<head>
+		<title>Rearden - Asset Management System</title>
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+		<link rel="shortcut icon" type="image/x-icon" href="assets/rearden.ico"/>
+		<%= stylesheet_link_tag jqueryui_css_google_cdn('cupertino', '1.10.2') %>
+	</head>
+	<body class="ui-widget">
 
-<%= yield %>
+		<table>
+			<tr>
+				<td>
+					<!-- Header  --> 
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<!-- Main                    -->
+					<table class="page-content-setting">
+						<tr>
+							<td valign="top" align="left"> 
+								<%= yield %> 
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<!-- Footer --> 
+				</td>
+			</tr>
+		</table>
 
-</body>
+	</body>
 </html>
+
