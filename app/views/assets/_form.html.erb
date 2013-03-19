@@ -29,11 +29,11 @@
   </div>
   <div class="field">
     <%= f.label :purchase_date %><br />
-    <%= f.text_field :purchase_date, input_html: {id: "datepicker"} %>
+    <%= f.text_field :purchase_date, id: 'purchase_date', readonly: 'true' %>
   </div>
   <div class="field">
     <%= f.label :release_date %><br />
-    <%= f.date_select :release_date %>
+    <%= f.text_field :release_date , id: 'release_date', readonly: 'true' %>
   </div>
   <div class="field">
     <%= f.label :asset_image %><br />

@@ -16,10 +16,14 @@
 //= require jquery-ui
 //= require dataTables/jquery.dataTables
 
-
 $(document).ready(function() {
-    $('#asset_table').dataTable({
-    	"bJQueryUI": true,
-        "sPaginationType": "full_numbers"	
-    });
-} );
+	$('#asset_table').dataTable({
+		"bJQueryUI" : true,
+		"sPaginationType" : "full_numbers"
+	});
+
+	$("#purchase_date,#release_date").datepicker({
+		changeMonth : true,
+		changeYear : true
+	});
+}); 
