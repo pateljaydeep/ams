@@ -41,7 +41,6 @@ $(document).ready(function() {
 	    var aData = oTable.fnGetData( nTr );
 	    var sOut = $('#assetdesc_'+aData[1]).val(); 
 	    sOut = sOut.replace(/\n/g, '<br/>');
-	    alert(sOut);
 	    return sOut;
 	}
 
