@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Asset:</b>
+  <%= @asset.asset_id %>
+</p>
+
+<p>
+  <b>Manufacturer:</b>
+  <%= @asset.manufacturer %>
+</p>
+
+<p>
+  <b>Asset type:</b>
+  <%= @asset.asset_type_id %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @asset.description %>
+</p>
+
+<p>
+  <b>Purchase date:</b>
+  <%= @asset.purchase_date %>
+</p>
+
+<p>
+  <b>Release date:</b>
+  <%= @asset.release_date %>
+</p>
+
+<p>
+  <b>Asset image:</b>
+  <%= @asset.asset_image %>
+</p>
+
+<p>
+  <b>Asset documents:</b>
+  <%= @asset.asset_documents %>
+</p>
+
+<p>
+  <b>Serial number:</b>
+  <%= @asset.serial_number %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%= @asset.model %>
+</p>
+
+<p>
+  <b>Make year:</b>
+  <%= @asset.make_year %>
+</p>
+
+<p>
+  <b>Display size:</b>
+  <%= @asset.display_size %>
+</p>
+
+<p>
+  <b>Operating system:</b>
+  <%= @asset.operating_system %>
+</p>
+
+
+<%= link_to 'Edit', edit_asset_path(@asset) %> |
+<%= link_to 'Back', assets_path %>

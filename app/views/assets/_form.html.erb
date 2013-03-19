@@ -1,0 +1,69 @@
+<%= form_for(@asset) do |f| %>
+  <% if @asset.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@asset.errors.count, "error") %> prohibited this asset from being saved:</h2>
+
+      <ul>
+      <% @asset.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :asset_id %><br />
+    <%= f.text_field :asset_id %>
+  </div>
+  <div class="field">
+    <%= f.label :manufacturer %><br />
+    <%= f.text_field :manufacturer %>
+  </div>
+  <div class="field">
+    <%= f.label :asset_type_id %><br />
+    <%= select("asset", "asset_type_id", AssetType.all.collect { |a| [ a.name, a.id ] }) %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, rows: 3 %>
+  </div>
+  <div class="field">
+    <%= f.label :purchase_date %><br />
+    <%= f.date_select :purchase_date %>
+  </div>
+  <div class="field">
+    <%= f.label :release_date %><br />
+    <%= f.date_select :release_date %>
+  </div>
+  <div class="field">
+    <%= f.label :asset_image %><br />
+    <%= f.text_field :asset_image %>
+  </div>
+  <div class="field">
+    <%= f.label :asset_documents %><br />
+    <%= f.text_field :asset_documents %>
+  </div>
+  <div class="field">
+    <%= f.label :serial_number %><br />
+    <%= f.text_field :serial_number %>
+  </div>
+  <div class="field">
+    <%= f.label :model %><br />
+    <%= f.text_field :model %>
+  </div>
+  <div class="field">
+    <%= f.label :make_year %><br />
+    <%= f.number_field :make_year %>
+  </div>
+  <div class="field">
+    <%= f.label :display_size %><br />
+    <%= f.text_field :display_size %>
+  </div>
+  <div class="field">
+    <%= f.label :operating_system %><br />
+    <%= f.text_field :operating_system %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
