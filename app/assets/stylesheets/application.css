@@ -11,3 +11,35 @@
  *= require_self
  *= require_tree .
  */
+
+table {
+	border: 1px solid lightgray;
+	width: 100%
+}
+
+table.bordertable2, .bordertable2 td, .bordertable2 th{
+	border: 1px solid darkgray;
+}
+
+img{
+	border: 0;
+}
+
+.page-header-setting{
+	margin: 0 auto;
+	background:#fff;
+	width: 1000px;
+}
+
+.page-footer-setting{
+	margin: 0 auto;
+	background:#fff;
+	width: 1000px;
+}
+
+.page-content-setting{
+	margin: 0 auto;
+	background:#fff;
+	width: 1000px;
+	height: 600px;
+}
