@@ -29,11 +29,13 @@
   </div>
   <div class="field">
     <%= f.label :purchase_date %><br />
-    <%= f.text_field :purchase_date, id: 'purchase_date', readonly: 'true' %>
+    <%= f.text_field :purchase_date, class: 'jquery-ui-date', readonly: 'true' %>
+    <%= f.hidden_field :purchase_date, id: 'asset_purchase_date_alt' %>
   </div>
   <div class="field">
     <%= f.label :release_date %><br />
-    <%= f.text_field :release_date , id: 'release_date', readonly: 'true' %>
+    <%= f.text_field :release_date, class: 'jquery-ui-date', readonly: 'true' %>
+    <%= f.hidden_field :release_date, id: 'asset_release_date_alt' %>
   </div>
   <div class="field">
     <%= f.label :asset_image %><br />
