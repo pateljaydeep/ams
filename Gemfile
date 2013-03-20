@@ -26,6 +26,7 @@ gem 'jquery-datatables-rails'
 gem 'jquery-ui-themes'
 gem 'execjs'
 gem 'therubyracer'
+gem 'rb-readline'
 gem 'rest-client'
 
 # To use ActiveModel has_secure_password

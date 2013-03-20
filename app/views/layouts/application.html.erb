@@ -2,11 +2,11 @@
 <html>
 	<head>
 		<title>Rearden - Asset Management System</title>
-		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= stylesheet_link_tag   "ams" ,"application", :media => "all" %>
 		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
 		<link rel="shortcut icon" type="image/x-icon" href="assets/rearden.ico"/>
-		<%= stylesheet_link_tag jqueryui_css_google_cdn('cupertino', '1.10.2') %>
+		<%= stylesheet_link_tag jqueryui_css_google_cdn('blitzer', '1.10.2') %>
 	</head>
 	<body class="ui-widget">
 
@@ -14,6 +14,38 @@
 			<tr>
 				<td>
 					<!-- Header  --> 
+					<table class="page-header-setting">
+						    <tr>
+						        <td width="5%" style="border-right: 1px solid lightgray;">
+					                <%= image_tag("rearden_logo.jpg",size: "200x60") %>
+						        </td>
+						        <td width="100%">
+						            <table width="100%" style="border-style: none">
+						                <tr>
+						                    <td align="right" valign="middle">
+						                <!-- <c:choose>
+						                    <c:when test="${sessionScope.user != null}">
+						                        Welcome   
+						                        <a href="${base_url}/Profile?action=Profile&profileId=${sessionScope.uid}">${sessionScope.user} </a>&nbsp;&nbsp; | &nbsp;&nbsp;
+						                        <a href="${base_url}/Logout">Logout</a>
+						                    </c:when>
+						                    <c:otherwise>
+						                        <a href="${base_url}/Login">Login</a>
+						                    </c:otherwise>
+						                </c:choose> -->
+						        </td>
+						    </tr>
+						    <tr class="ui-state-default">
+						        <td>
+						            <ul class="dropdown" >
+						                <!-- <li><a href="/home" title="Home">Home</a></li> -->
+						            </ul>
+						        </td>
+						    </tr>
+						</table>
+						</td>
+						</tr>
+					</table>
 				</td>
 			</tr>
 			<tr>
@@ -31,6 +63,16 @@
 			<tr>
 				<td>
 					<!-- Footer --> 
+					<table class="page-footer-setting">
+				    <tr align="center">
+				        <td>
+				    		Copyright &copy; 2012-2013. All rights reserved.
+				        </td>
+				        <td>
+				        	Bugs / Queries / Features : <A HREF="mailto:arjun.surendra@deem.com">Email</A>
+				        </td>
+				    </tr>
+				</table>
 				</td>
 			</tr>
 		</table>
