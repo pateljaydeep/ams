@@ -93,11 +93,8 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.2)
-<<<<<<< HEAD
     rest-client (1.6.7)
       mime-types (>= 1.16)
-=======
->>>>>>> a7986d4fc93f8b5028309e24e818548a0313f10a
     sass (3.2.7)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -133,11 +130,8 @@ DEPENDENCIES
   jquery-ui-rails
   jquery-ui-themes
   rails (= 3.2.12)
-<<<<<<< HEAD
-  rest-client
-=======
   rb-readline
->>>>>>> a7986d4fc93f8b5028309e24e818548a0313f10a
+  rest-client
   sass-rails (~> 3.2.3)
   sqlite3
   therubyracer
