@@ -5,12 +5,12 @@
 	<thead>
 	  <tr>
 	  	<th width="5%">Id</th> 
-		<th>Id</th>
+		<th width="5%">Id</th>
 		<th>Asset</th>
 		<th>Type</th>
-		<th></th>
-		<th></th>
-		<th></th>
+		<th width="2%"></th>
+		<th width="2%"></th>
+		<th width="2%"></th>
 	  </tr>
 	</thead>
 	<tbody>
@@ -37,10 +37,15 @@
 	    	%>
 	    	<input type="hidden" id="assetdesc_<%= asset.id %>" value="<%=tempVar%>"/>
 	    </td>
-	    <td><%= asset.asset_type %></td>
-	    <td><%= link_to 'Show', asset %></td>
-	    <td><%= link_to 'Edit', edit_asset_path(asset) %></td>
-	    <td><%= link_to 'Destroy', asset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	    <td><%= asset.asset_type.name %></td>
+	    <td>
+	    	<%= link_to image_tag("noimage.png", :class => "ui-icon ui-icon-clipboard") , asset %>
+	    <td>
+	    	<%= link_to image_tag("noimage.png", :class => "ui-icon ui-icon-pencil") , edit_asset_path(asset)%>
+		</td>
+	    <td>
+	    	<%= link_to image_tag("noimage.png", :class => "ui-icon ui-icon-trash"),asset, method: :delete, data: { confirm: 'Are you sure?' } %>
+		</td>
 	  </tr>
 	<% end %>
 	

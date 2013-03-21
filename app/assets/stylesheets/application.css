@@ -17,36 +17,3 @@
  *= require jquery-ui/redmond
  */
 
-
-
-table {
-	border: 1px solid lightgray;
-	width: 100%
-}
-
-table.bordertable2, .bordertable2 td, .bordertable2 th{
-	border: 1px solid darkgray;
-}
-
-img{
-	border: 0;
-}
-
-.page-header-setting{
-	margin: 0 auto;
-	background:#fff;
-	width: 1200px;
-}
-
-.page-footer-setting{
-	margin: 0 auto;
-	background:#fff;
-	width: 1200px;
-}
-
-.page-content-setting{
-	margin: 0 auto;
-	background:#fff;
-	width: 1200px;
-	height: 700px;
-}
