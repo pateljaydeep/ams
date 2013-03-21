@@ -42,11 +42,13 @@
 						    </tr>
 						    <tr class="ui-state-default">
 						        <td>
+						        	<% if session[:user_name] != nil %>
 						            <ul class="dropdown" >
 						                <li><a href="/assets" title="Assets">Assets</a></li>
 						                <li><a href="#" title="Asset Assignments">Assignments</a></li>
 						                <li><a href="#" title="Reports">Reports</a></li>
 						            </ul>
+						           <% end %> 
 						        </td>
 						    </tr>
 						</table>
