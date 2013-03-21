@@ -21,8 +21,13 @@
 						        </td>
 						        <td width="100%">
 						            <table width="100%" style="border-style: none">
+						            	<% if session[:user_name] != nil %>
 						                <tr>
-						                    <td align="right" valign="middle">
+						                	<td align="right" valign="middle">
+						                    	Welcome <%= "#{session[:user_name]}" %>&nbsp;&nbsp;<%= link_to 'Logout', logout_path, method: :delete %>
+						                    </td>
+						                </tr>
+						                <% end %>
 						                <!-- <c:choose>
 						                    <c:when test="${sessionScope.user != null}">
 						                        Welcome   

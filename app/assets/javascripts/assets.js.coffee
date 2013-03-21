@@ -23,7 +23,7 @@ $(document).ready ->
     changeYear: true
     dateFormat: "yy-mm-d"
 
-  $("#asset_table tbody td img").click ->
+  $(".ui-icon-circle-plus").click ->
     nTr = $(this).parents("tr")[0]
     if oTable.fnIsOpen(nTr)
       

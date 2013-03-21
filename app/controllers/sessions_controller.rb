@@ -5,24 +5,24 @@ class SessionsController < ApplicationController
   end
 
   def create
-    userid = params[:name]
+    userLoginId = params[:name]
     pwd = params[:password]
-    empCode = nil
     begin
-      response = RestClient.get("https://atlas:8443/atlas/rest/auth?user=#{userid}&pwd=#{pwd}")
+      response = RestClient.get("https://atlas:8443/atlas/rest/auth?user=#{userLoginId}&pwd=#{pwd}")
       
       jsonResp = JSON.parse response.body
       
-      empCode = jsonResp["empCode"]
+      empId = jsonResp["id"]
     rescue => e
       puts('Exception during REST call for authentication ')
       e.response
     end
 
-    if userid[0] != nil and empCode != nil
-      session[:user_id] = userid
+    if userLoginId[0] != nil and empId != nil
+      session[:user_id] = empId
+      session[:user_name] = jsonResp["name"]
       
-      redirect_to assets_url, notice: "You are logged in as #{userid} "
+      redirect_to assets_url
     else
       redirect_to login_url, alert: "Invalid user/password combination"
     end
@@ -30,6 +30,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    session[:user_name] = nil
     redirect_to login_url, notice: "Logged out"
   end
 end
