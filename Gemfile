@@ -27,6 +27,7 @@ gem 'jquery-ui-themes'
 gem 'execjs'
 gem 'therubyracer'
 gem 'rb-readline'
+gem 'rest-client'
 gem 'mysql2'
 
 # To use ActiveModel has_secure_password

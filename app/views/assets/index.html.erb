@@ -4,19 +4,10 @@
 	
 	<thead>
 	  <tr>
+	  	<th width="5%">Id</th> 
+		<th>Id</th>
 		<th>Asset</th>
-		<th>Manufacturer</th>
-		<th>Asset type</th>
-		<th>Description</th>
-		<th>Purchase date</th>
-		<th>Release date</th>
-		<th>Asset image</th>
-		<th>Asset documents</th>
-		<th>Serial number</th>
-		<th>Model</th>
-		<th>Make year</th>
-		<th>Display size</th>
-		<th>Operating system</th>
+		<th>Type</th>
 		<th></th>
 		<th></th>
 		<th></th>
@@ -25,19 +16,28 @@
 	<tbody>
 	<% @assets.each do |asset| %>
 	  <tr>
-	    <td><%= asset.asset_id %></td>
-	    <td><%= asset.manufacturer %></td>
-	    <td><%= asset.asset_type.name %></td>
-	    <td><%= asset.description %></td>
-	    <td><%= asset.purchase_date %></td>
-	    <td><%= asset.release_date %></td>
-	    <td><%= asset.asset_image %></td>
-	    <td><%= asset.asset_documents %></td>
-	    <td><%= asset.serial_number %></td>
-	    <td><%= asset.model %></td>
-	    <td><%= asset.make_year %></td>
-	    <td><%= asset.display_size %></td>
-	    <td><%= asset.operating_system %></td>
+	  	<td width="1%">
+	        <img class="ui-icon ui-icon-circle-plus">
+	    </td>
+	    <td><%= asset.id %></td>
+  	    <td>
+	    	<%= asset.asset_id %>
+	    	<%
+	    		tempVar = "Manufacturer:"  + asset.manufacturer + "\n"
+	    		tempVar = tempVar + "Description:" + asset.description + "\n" 
+	    		# tempVar = tempVar + Date::strptime(asset.purchase_date, "%d-%m-%Y")  + "\n" 
+	    		# tempVar = tempVar + Date::strptime(asset.release_date, "%d-%m-%Y")  + "\n" 
+	    		tempVar = tempVar + "Documents:"  + asset.asset_documents + "\n" 
+	    		tempVar = tempVar + "Serial Number:"  + asset.serial_number + "\n" 
+	    		tempVar = tempVar + "Model:"  + asset.model + "\n" 
+	    		# tempVar = tempVar + "Make Year:" + asset.make_year + "\n" 
+	    		tempVar =  tempVar  + "Display Size:"  + asset.display_size + "\n" 
+	    		tempVar =  tempVar + "OS:"+ asset.operating_system + "\n"
+	    		
+	    	%>
+	    	<input type="hidden" id="assetdesc_<%= asset.id %>" value="<%=tempVar%>"/>
+	    </td>
+	    <td><%= asset.asset_type %></td>
 	    <td><%= link_to 'Show', asset %></td>
 	    <td><%= link_to 'Edit', edit_asset_path(asset) %></td>
 	    <td><%= link_to 'Destroy', asset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
