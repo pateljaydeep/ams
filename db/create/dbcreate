@@ -1,0 +1,57 @@
+#! /bin/bash 
+#
+# Create a new DB
+#
+# Will wipe out DB every time
+#
+
+#! /bin/sh -xv
+if [ "$#" = "0" ]
+then
+    echo "Usage: dbcreate --config=<property file>"
+    exit
+fi
+for i in $*
+do
+        case $i in
+        --config=*)
+                CONFIG=`echo $i | sed 's/[-a-zA-Z0-9]*=//'`
+                ;;
+        esac
+done
+
+echo "using $CONFIG"
+source $CONFIG
+
+
+source $CONFIG
+
+mysql --host=${hostname} --user=${admin_username} --force --password=${admin_password} -v <<EOF
+-- recreating database 
+drop database if exists ${db_name};
+flush privileges;
+create database ${db_name} default character set utf8 default collate utf8_general_ci;
+
+-- recreating app_username
+drop user '${app_username}'@'%';
+flush privileges;
+create user '${app_username}'@'%'          IDENTIFIED BY '${app_password}';
+
+-- recreating mgr_username
+drop user '${mgr_username}'@'%';
+flush privileges;
+create user '${mgr_username}'@'%'          IDENTIFIED BY '${mgr_password}';
+
+-- recreating rpt_username
+drop user '${rpt_username}'@'%';
+flush privileges;
+create user '${rpt_username}'@'%'          IDENTIFIED BY '${rpt_password}';
+
+-- DDL grants
+grant alter, alter routine, alter routine, create, create routine, create temporary tables, create view, drop, grant option, index, references, trigger ON ${db_name}.*  to '${mgr_username}'@'%'  identified by '${mgr_password}' ;
+
+-- DML grants
+grant Select, Update, Delete, Insert, Execute, Lock tables ON ${db_name}.*  to '${mgr_username}'@'%'  identified by '${mgr_password}' with grant option ; 
+
+
+EOF

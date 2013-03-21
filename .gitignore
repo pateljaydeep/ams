@@ -13,3 +13,11 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+public/assets
+public/assets/application.css
+public/assets/application.css.gz
+public/assets/application.js
+public/assets/application.js.gz
+public/assets/jquery.min.map
+public/assets/manifest.yml
+public/assets/rails.png
