@@ -1,56 +1,28 @@
-<table cellpadding="0" cellspacing="0" border="0" class="display" id="asset_table">
-	
+<table class="table table-striped table-bordered dataTable">
 	<thead>
-	  <tr>
-	  	<th width="5%">Id</th> 
-		<th width="5%">Id</th>
-		<th>Asset</th>
-		<th>Type</th>
-		<th width="5%"></th>
-		<th width="5%"></th>
-		<th width="5%"></th>
-	  </tr>
+		<tr>
+			<th>Type</th>
+			<th>Description</th>
+			<th>Mfg.</th>
+			<th>Serial #</th>
+			<th>Action</th>
+		</tr>
 	</thead>
 	<tbody>
-	<% @assets.each do |asset| %>
-	  <tr>
-	  	<td width="1%">
-	        <img class="ui-icon ui-icon-circle-plus">
-	    </td>
-	    <td><%= asset.id %></td>
-  	    <td>
-	    	<%= asset.asset_id %>
-	    	<%
-	    		tempVar = "Manufacturer:"  + asset.manufacturer + "\n"
-	    		tempVar = tempVar + "Description:" + asset.description + "\n" 
-	    		# tempVar = tempVar + Date::strptime(asset.purchase_date, "%d-%m-%Y")  + "\n" 
-	    		# tempVar = tempVar + Date::strptime(asset.release_date, "%d-%m-%Y")  + "\n" 
-	    		tempVar = tempVar + "Documents:"  + asset.asset_documents + "\n" 
-	    		tempVar = tempVar + "Serial Number:"  + asset.serial_number + "\n" 
-	    		tempVar = tempVar + "Model:"  + asset.model + "\n" 
-	    		# tempVar = tempVar + "Make Year:" + asset.make_year + "\n" 
-	    		tempVar =  tempVar  + "Display Size:"  + asset.display_size + "\n" 
-	    		tempVar =  tempVar + "OS:"+ asset.operating_system + "\n"
-	    		
-	    	%>
-	    	<input type="hidden" id="assetdesc_<%= asset.id %>" value="<%=tempVar%>"/>
-	    </td>
-	    <td><%= asset.asset_type.name %></td>
-	    <td>
-	    	<%= link_to image_tag("", :class => "ui-icon ui-icon-clipboard") , asset %>
-	    <td>
-	    	<%= link_to image_tag("", :class => "ui-icon ui-icon-pencil") , edit_asset_path(asset)%>
-		</td>
-	    <td>
-	    	<%= link_to image_tag("", :class => "ui-icon ui-icon-trash"),asset, method: :delete, data: { confirm: 'Are you sure?' } %>
-		</td>
-	  </tr>
-	<% end %>
-	
+		<% @assets.each do |asset| %>
+		<tr>
+			<td><%= asset.asset_type.name %></td>
+			<td><%= asset.description %></td>
+			<td><%= asset.manufacturer %></td>
+			<td><%= asset.serial_number %></td>
+			<td>
+				<%= link_to raw('<i class="icon-pencil"></i>'), asset %>
+				<%= link_to raw('<i class="icon-edit"></i>'), edit_asset_path(asset)%>
+				<%= link_to raw('<i class="icon-trash"></i>'), asset, method: :delete, data: { confirm: 'Are you sure?' } %>
+			</td>
+		</tr>
+		<% end %>
 	</tbody>
-
 </table>
-
-<br />
 
 <%= link_to 'New Asset', new_asset_path %>

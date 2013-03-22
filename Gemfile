@@ -38,7 +38,7 @@ gem 'rest-client'
 group :production do
   gem 'mysql2'  
 end
-
+gem 'bootstrap-sass'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

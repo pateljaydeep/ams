@@ -1,0 +1,24 @@
+@import "bootstrap";
+
+body { 
+  color: #444444;
+  font: 13px Tahoma,Geneva,sans-serif;
+  line-height: 1; 
+  padding-top: 5px;
+  background: #E6E6E6;
+}
+//@import "bootstrap-responsive";
+
+.body {
+  padding: 0 10px;
+  background: white;
+  min-height: 1000px;
+}
+
+ul.nav li.dropdown:hover ul.dropdown-menu{
+    display: block;    
+}
+
+.headerLeft {
+  text-align: right;
+}

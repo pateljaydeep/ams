@@ -1,91 +1,45 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Rearden - Asset Management System</title>
-		<%= stylesheet_link_tag   "application",jqueryui_css_google_cdn('blitzer', '1.9.2'),"ams", :media => "all" %>
-		
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title><%= content_for?(:title) ? yield(:title) : "Rearden - Asset Management System" %></title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<%= stylesheet_link_tag   "ams" ,"application", :media => "all" %>
 		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
 		<link rel="shortcut icon" type="image/x-icon" href="assets/rearden.ico"/>
+		<%= yield(:head) %>
 	</head>
-	<body class="ui-widget">
-
-		<table>
-			<tr>
-				<td>
-					<!-- Header  --> 
-					<table class="page-header-setting">
-						    <tr>
-						        <td width="5%" style="border-right: 1px solid lightgray;">
-					                <%= image_tag("rearden_logo.jpg",size: "200x60") %>
-						        </td>
-						        <td width="100%">
-						            <table width="100%" style="border-style: none">
-						            	<% if session[:user_name] != nil %>
-						                <tr>
-						                	<td align="right" valign="middle">
-						                    	Welcome <%= "#{session[:user_name]}" %>&nbsp;&nbsp;<%= link_to 'Logout', logout_path, method: :delete %>
-						                    </td>
-						                </tr>
-						                <% end %>
-						                <!-- <c:choose>
-						                    <c:when test="${sessionScope.user != null}">
-						                        Welcome   
-						                        <a href="${base_url}/Profile?action=Profile&profileId=${sessionScope.uid}">${sessionScope.user} </a>&nbsp;&nbsp; | &nbsp;&nbsp;
-						                        <a href="${base_url}/Logout">Logout</a>
-						                    </c:when>
-						                    <c:otherwise>
-						                        <a href="${base_url}/Login">Login</a>
-						                    </c:otherwise>
-						                </c:choose> -->
-						        </td>
-						    </tr>
-						    <tr class="ui-state-default">
-						        <td>
-						        	<% if session[:user_name] != nil %>
-						            <ul class="dropdown" >
-						                <li><a href="/assets" title="Assets">Assets</a></li>
-						                <li><a href="#" title="Asset Assignments">Assignments</a></li>
-						                <li><a href="#" title="Reports">Reports</a></li>
-						            </ul>
-						           <% end %> 
-						        </td>
-						    </tr>
-						</table>
-						</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<!-- Main                    -->
-					<table class="page-content-setting">
-						<tr>
-							<td valign="top" align="left"> 
-								<%= yield %> 
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<!-- Footer --> 
-					<table class="page-footer-setting">
-				    <tr align="center">
-				        <td>
-				    		Copyright &copy; 2012-2013. All rights reserved.
-				        </td>
-				        <td>
-				        	Bugs / Queries / Features : <A HREF="mailto:arjun.surendra@deem.com">Email</A>
-				        </td>
-				    </tr>
-				</table>
-				</td>
-			</tr>
-		</table>
-
+	<body>
+		<div class="container body">
+			<div class="masthead">
+				<div class="row-fluid">
+					<div class="span5"><%= image_tag("rearden_logo.jpg",size: "230x80") %></div>
+					<div class="span7">
+						<div class="headerLeft">
+						<div>Welcome <strong><%= "#{session[:user_name]}" %></strong> (<%= link_to 'Logout', logout_path, method: :delete %>)</div>
+						<h3>Asset Management System</h3>
+						</div>
+					</div>	
+				</div>
+				<%= render 'layouts/navigation' %>
+			</div>
+			
+			<div class="container">
+				<div class="content">
+					<div class="row">
+						<div class="span12">
+							<%= render 'layouts/messages' %>
+							<%= yield %>
+						</div>
+					</div>
+					<footer></footer>
+				</div>
+			</div>
+			<!--! end of .container -->
+		</div>
+		<!--! end of #main -->
 	</body>
 </html>
-

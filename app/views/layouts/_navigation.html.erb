@@ -1,0 +1,22 @@
+<% if session[:user_name] != nil %>
+<div class="navbar navbar-static">
+	<div class="navbar-inner">
+		<div class="container">
+		<ul class="nav">
+			<li class="active"><a href="#">Home</a></li>
+			<li class="dropdown">
+				<a data-toggle="dropdown" class="dropdown-toggle" href="#">Asset</a>
+				<ul class="dropdown-menu">
+					<li><%= link_to "Create Asset", new_asset_path %></li>
+					<li><a href="#">Asset Types</a></li>
+					<li><a href="#">Asset States</a></li>
+					<li><a href="#">Asset Bulk upload</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Assign</a></li>
+			<li><a href="#">Reports</a></li>
+		</ul>
+		</div>
+	</div>
+</div>
+<% end %>
