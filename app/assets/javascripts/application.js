@@ -17,3 +17,5 @@
 //= require dataTables/jquery.dataTables
 //= require menubar
 //= require bootstrap
+
+$("#test").dropdown()

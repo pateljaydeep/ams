@@ -4,15 +4,21 @@ body {
   color: #444444;
   font: 13px Tahoma,Geneva,sans-serif;
   line-height: 1; 
-  padding-top: 5px;
   background: #E6E6E6;
 }
 //@import "bootstrap-responsive";
 
 .body {
-  padding: 0 10px;
+  padding: 10px 10px 0 10px;
   background: white;
   min-height: 1000px;
+  //background: -moz-linear-gradient(left,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 4%); /* FF3.6+ */
+  //background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.65)), color-stop(4%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+  //background: -webkit-linear-gradient(left,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 2%); /* Chrome10+,Safari5.1+ */
+  //background: -o-linear-gradient(left,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 4%); /* Opera 11.10+ */
+  //background: -ms-linear-gradient(left,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 4%); /* IE10+ */
+  //background: linear-gradient(to right,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 4%); /* W3C */
+  //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
 }
 
 ul.nav li.dropdown:hover ul.dropdown-menu{
@@ -21,4 +27,12 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 
 .headerLeft {
   text-align: right;
+}
+
+.navbar .dropdown-menu {
+  margin-top: 0px;
+}
+
+.navbar .nav > li > .dropdown-menu:before, .navbar .nav > li > .dropdown-menu:after {
+  content: none;
 }

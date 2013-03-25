@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
       end
     end
     
+    def page(p) 
+      @page = p
+    end
+    
 end

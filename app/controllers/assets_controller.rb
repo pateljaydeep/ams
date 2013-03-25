@@ -2,6 +2,7 @@ class AssetsController < ApplicationController
   # GET /assets
   # GET /assets.json
   def index
+    page "home"
     @assets = Asset.all
 
     respond_to do |format|
@@ -13,6 +14,7 @@ class AssetsController < ApplicationController
   # GET /assets/1
   # GET /assets/1.json
   def show
+    page "asset"
     @asset = Asset.find(params[:id])
 
     respond_to do |format|
@@ -24,6 +26,7 @@ class AssetsController < ApplicationController
   # GET /assets/new
   # GET /assets/new.json
   def new
+    page "asset"
     @asset = Asset.new
 
     respond_to do |format|
