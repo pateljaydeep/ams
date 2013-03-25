@@ -9,7 +9,6 @@ body {
 //@import "bootstrap-responsive";
 
 .body {
-  padding: 10px 10px 0 10px;
   background: white;
   min-height: 1000px;
   //background: -moz-linear-gradient(left,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 4%); /* FF3.6+ */
@@ -19,20 +18,64 @@ body {
   //background: -ms-linear-gradient(left,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 4%); /* IE10+ */
   //background: linear-gradient(to right,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 4%); /* W3C */
   //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+} 
+
+.navbar {
+  .dropdown-menu {
+    margin-top: 0px;
+  }
+  
+  .navbar-inner {
+    background: none;
+    background-color: #CCCCCC;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #666666;
+    border-top: 1px solid #666666;
+    min-height: 30px;
+  }
+  
+  .nav {
+    li.dropdown:hover ul.dropdown-menu{
+        display: block;    
+    }
+    
+    .active > a,
+    .active > a:hover,
+    li.dropdown.active > .dropdown-toggle,
+    li.dropdown.open.active > .dropdown-toggle {
+      background: none;
+      background-color: #000000;
+      color: #ffffff
+    }
+    
+    > li {
+      line-height: 10px;
+    }
+    
+    > li > a {
+      color: #464646;
+      text-shadow: none;
+    }
+    
+    > li > .dropdown-menu:before, > li > .dropdown-menu:after {
+      content: none;
+    }
+  }
 }
 
-ul.nav li.dropdown:hover ul.dropdown-menu{
-    display: block;    
+.masthead {
+  background-color: #969696;
+}
+
+#logo a {
+  margin: 20px 0 0 20px;
+  display: block;
 }
 
 .headerLeft {
+  text-shadow: 1px 1px #333333;
+  padding-top: 5px;
+  color: #fff;
   text-align: right;
-}
-
-.navbar .dropdown-menu {
-  margin-top: 0px;
-}
-
-.navbar .nav > li > .dropdown-menu:before, .navbar .nav > li > .dropdown-menu:after {
-  content: none;
 }
