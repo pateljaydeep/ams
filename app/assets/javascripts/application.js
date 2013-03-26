@@ -18,4 +18,3 @@
 //= require menubar
 //= require bootstrap
 
-$("#test").dropdown()
