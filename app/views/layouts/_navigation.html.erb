@@ -4,7 +4,7 @@
 		<div class="container">
 		<ul class="nav">
 			<li <% if @page=="home" %> class="active" <% end %>>
-				<%= link_to "Home", "/" %>
+				<%= link_to "Home", "/home" %>
 			</li>
 			<li class="dropdown <% if @page=="asset" %>active<% end %>">
 				<a class="dropdown-toggle" href="<%=assets_path%>">Asset</a>

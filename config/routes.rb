@@ -1,6 +1,9 @@
 Ams::Application.routes.draw do
   
   
+  get "home" , {:action=>"index", :controller=>"home"}
+
+
   #get "sessions/new"
 
   #get "sessions/create"
