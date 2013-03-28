@@ -21,7 +21,9 @@
 					</div>
 					<div class="span7">
 						<div class="headerLeft">
+					    <%if session[:user_name] != nil%>
 						<div>Welcome <strong><%= "#{session[:user_name]}" %></strong> (<%= link_to 'Logout', logout_path, method: :delete %>)</div>
+						<%end%>
 						<h3>Asset Management System</h3>
 						</div>
 					</div>	
