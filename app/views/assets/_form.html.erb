@@ -1,4 +1,6 @@
 <%= form_for(@asset) do |f| %>
+<div class="container clear-top">
+	
   <% if @asset.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@asset.errors.count, "error") %> prohibited this asset from being saved:</h2>
@@ -10,60 +12,70 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+<div class="row-fluid">
+  <div class="field span4">
     <%= f.label :asset_id %><br />
     <%= f.text_field :asset_id %>
   </div>
-  <div class="field">
+  <div class="field span4">
     <%= f.label :manufacturer %><br />
     <%= f.text_field :manufacturer %>
   </div>
-  <div class="field">
+  <div class="field span4">
     <%= f.label :asset_type_id %><br />
     <%= select("asset", "asset_type_id", AssetType.all.collect { |a| [ a.name, a.id ] }) %>
   </div>
-  <div class="field">
+</div>
+<div class="row-fluid">
+  <div class="field span4">
     <%= f.label :description %><br />
     <%= f.text_area :description, rows: 3 %>
   </div>
-  <div class="field">
+  <div class="field span4">
     <%= f.label :purchase_date %><br />
     <%= f.text_field :purchase_date, id: 'purchase_date', readonly: 'true' %>
   </div>
-  <div class="field">
+  <div class="field span4">
     <%= f.label :release_date %><br />
     <%= f.text_field :release_date, id: 'release_date', readonly: 'true' %>
   </div>
-  <div class="field">
+</div>
+<div class="row-fluid">
+  <div class="field span4">
     <%= f.label :asset_image %><br />
     <%= f.text_field :asset_image %>
   </div>
-  <div class="field">
+  <div class="field span4">
     <%= f.label :asset_documents %><br />
     <%= f.text_field :asset_documents %>
   </div>
-  <div class="field">
+  <div class="field span4">
     <%= f.label :serial_number %><br />
     <%= f.text_field :serial_number %>
   </div>
-  <div class="field">
+</div>
+<div class="row-fluid">
+  <div class="field span4">
     <%= f.label :model %><br />
     <%= f.text_field :model %>
   </div>
-  <div class="field">
+  <div class="field span4">
     <%= f.label :make_year %><br />
     <%= f.number_field :make_year %>
   </div>
-  <div class="field">
+  <div class="field span4">
     <%= f.label :display_size %><br />
     <%= f.text_field :display_size %>
   </div>
-  <div class="field">
+</div>
+<div class="row-fluid">
+  <div class="field span4">
     <%= f.label :operating_system %><br />
     <%= f.text_field :operating_system %>
   </div>
+</div>
   <div class="actions">
     <%= f.submit %>
   </div>
+ </div>
 <% end %>
