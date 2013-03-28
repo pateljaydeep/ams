@@ -29,16 +29,10 @@
 				<%= render 'layouts/navigation' %>
 			</div>
 			
-			<div class="container">
-				<div class="content">
-					<div class="row">
-						<div class="span12 cont-page">
-							<%= render 'layouts/messages' %>
-							<%= yield %>
-						</div>
-					</div>
-					<footer></footer>
-				</div>
+			<div class="container" id="mainBody">
+				<%= render 'layouts/messages' %>
+				<%= yield %>
+				<footer></footer>
 			</div>
 			<!--! end of .container -->
 		</div>

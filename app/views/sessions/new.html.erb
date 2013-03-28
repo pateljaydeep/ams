@@ -1,22 +1,25 @@
-<div class="depot_form">
+<div class="loginform">
   <% if flash[:alert] %>
     <p id="notice"><%= flash[:alert] %></p>
   <% end %>
-  <%= form_tag do %>
-    <fieldset>
+  <%= form_tag "/login", method: :post do %>
+  <fieldset>
       <legend>Please Log In</legend>
-
-      <div>
-        <%= label_tag :name, 'Name:' %>
-        <%= text_field_tag :name, params[:name] %>
-      </div>
-      <div>
-        <%= label_tag :password, 'Password:' %>
-        <%= password_field_tag :password, params[:password] %>
-      </div>
-      <div>
-        <%= submit_tag "Login" %>
-      </div>
-    </fieldset>
+  <div class="control-group">
+    <div class="controls">
+      <%= text_field_tag :name, params[:name], placeholder: "User ID", class: "input-block-level" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+	  <%= password_field_tag :password, params[:password], placeholder: "Password", class: "input-block-level" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <%= submit_tag "Sign in", class: "btn" %>
+    </div>
+  </div>
+  </fieldset>
   <% end %>
 </div>
