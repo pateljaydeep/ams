@@ -1,7 +1,7 @@
 Ams::Application.routes.draw do
   
   
-  get "home" , {:action=>"index", :controller=>"home"}
+  get "home" , {:action=>"index", :controller=>"assets"}
 
 
   #get "sessions/new"

@@ -37,12 +37,14 @@ class AssetsController < ApplicationController
 
   # GET /assets/1/edit
   def edit
+    page "asset"
     @asset = Asset.find(params[:id])
   end
 
   # POST /assets
   # POST /assets.json
   def create
+    
     @asset = Asset.new(params[:asset])
 
     respond_to do |format|
