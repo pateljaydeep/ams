@@ -2,8 +2,8 @@
 	<thead>
 		<tr>
 			<th>Type</th>
-			<th>Description</th>
-			<th>Mfg.</th>
+			<th class="hidden-phone">Description</th>
+			<th class="hidden-phone">Mfg.</th>
 			<th>Serial #</th>
 			<th>Action</th>
 		</tr>
@@ -12,8 +12,8 @@
 		<% @assets.each do |asset| %>
 		<tr>
 			<td><%= asset.asset_type.name %></td>
-			<td><%= asset.description %></td>
-			<td><%= asset.manufacturer %></td>
+			<td class="hidden-phone"><%= asset.description %></td>
+			<td class="hidden-phone"><%= asset.manufacturer %></td>
 			<td><%= asset.serial_number %></td>
 			<td>
 				<%= link_to raw('<i class="icon-pencil"></i>'), asset %>

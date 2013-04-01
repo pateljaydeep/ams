@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "bootstrap-responsive";
 
 .big-spacer {  margin-top: 100px; }
 .medium-spacer {  margin-top: 50px; }
@@ -10,7 +11,6 @@ body {
   line-height: 1; 
   background: #E6E6E6;
 }
-//@import "bootstrap-responsive";
 
 .body {
   background: white;
@@ -82,6 +82,7 @@ body {
   padding-top: 5px;
   color: #fff;
   text-align: right;
+  padding-right: 5px;
 }
 
 #mainBody {
