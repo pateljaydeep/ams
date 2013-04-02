@@ -1,6 +1,9 @@
 Ams::Application.routes.draw do
   
   
+  resources :asset_assignments
+
+
   get "home" , {:action=>"index", :controller=>"assets"}
 
 
