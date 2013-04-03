@@ -1,19 +1,5 @@
 <%= form_for(@asset) do |f| %>
-
 	
-  <% if @asset.errors.any? %>
-<!--
-    <div id="error_explanation">
-      <h2><%= pluralize(@asset.errors.count, "error") %> prohibited this asset from being saved:</h2>
-
-      <ul>
-      <% @asset.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>-->
-
-  <% end %>
 <div class="row-fluid">
   <div class="field span4">
     <%= f.label :asset_id %><br />
