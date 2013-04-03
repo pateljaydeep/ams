@@ -12,7 +12,7 @@ class AssetsController < ApplicationController
   
   def specificAsset
     page "asset"
-    @assets = Asset.joins(:asset_type).where('id'=>params[:id])
+    @assets = Asset.find_by_sql("select * from assets,asset_types where assets.asset_type_id = asset_types.id and assets.asset_type_id = " + params[:typeId])
     respond_to do |format|
       format.html { render action: "index" }
       format.json { render json: @assets }

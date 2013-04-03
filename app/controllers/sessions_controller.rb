@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
       if authorizedRoles.include? jsonResp["role"]
         session[:user_id] = empId
         session[:user_name] = jsonResp["name"]
-        redirect_to assets_url
+        redirect_to home_url
       else
         redirect_to login_url, alert: "Unauthorized Login"
       end

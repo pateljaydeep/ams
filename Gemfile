@@ -26,14 +26,11 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'jquery-ui-rails'
-gem 'jquery-datatables-rails'
-gem 'jquery-ui-themes'
 gem 'execjs'
 gem 'therubyracer'
 gem 'rb-readline'
 gem 'rest-client'
-
+gem 'bootstrap-datepicker-rails'
 
 group :production do
   gem 'mysql2'  
