@@ -2,11 +2,19 @@ class AssetsController < ApplicationController
   # GET /assets
   # GET /assets.json
   def index
-    page "home"
+    page "asset"
     @assets = Asset.all
-
     respond_to do |format|
       format.html # index.html.erb
+      format.json { render json: @assets }
+    end
+  end
+  
+  def specificAsset
+    page "asset"
+    @assets = Asset.joins(:asset_type).where('id'=>params[:id])
+    respond_to do |format|
+      format.html { render action: "index" }
       format.json { render json: @assets }
     end
   end

@@ -1,7 +1,8 @@
 Ams::Application.routes.draw do
   
   
-  get "home" , {:action=>"index", :controller=>"assets"}
+  get "home" , {:action=>"index", :controller=>"home"}
+  get "/assetsbytype/:type", {:action=>"specificAsset", :controller=>"assets"}
 
 
   #get "sessions/new"

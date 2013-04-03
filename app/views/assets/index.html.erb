@@ -1,3 +1,6 @@
+<%if @assets.empty?%>
+<center>No Records</center>
+<%else%>
 <table class="table table-striped table-bordered dataTable">
 	<thead>
 		<tr>
@@ -24,5 +27,7 @@
 		<% end %>
 	</tbody>
 </table>
-
 <%= link_to 'New Asset', new_asset_path %>
+<%end%>
+
+
