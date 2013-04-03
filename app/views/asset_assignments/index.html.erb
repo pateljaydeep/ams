@@ -1,0 +1,31 @@
+<h1>Listing asset_assignments</h1>
+
+<table>
+  <tr>
+    <th>Assignee</th>
+    <th>Assignee name</th>
+    <th>Assigned date</th>
+    <th>Returned date</th>
+    <th>Asset</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @asset_assignments.each do |asset_assignment| %>
+  <tr>
+    <td><%= asset_assignment.assignee_id %></td>
+    <td><%= asset_assignment.assignee_name %></td>
+    <td><%= asset_assignment.assigned_date %></td>
+    <td><%= asset_assignment.returned_date %></td>
+    <td><%= asset_assignment.asset_id %></td>
+    <td><%= link_to 'Show', asset_assignment %></td>
+    <td><%= link_to 'Edit', edit_asset_assignment_path(asset_assignment) %></td>
+    <td><%= link_to 'Destroy', asset_assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Asset assignment', new_asset_assignment_path %>
