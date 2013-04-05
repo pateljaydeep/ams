@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    page "home"
     @asset_types = AssetType.all
 
     respond_to do |format|
