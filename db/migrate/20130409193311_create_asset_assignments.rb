@@ -4,7 +4,6 @@ class CreateAssetAssignments < ActiveRecord::Migration
       t.string :assignee_id
       t.string :assignee_name
       t.date :assigned_date
-      t.date :returned_date
       t.integer :asset_id
 
       t.timestamps

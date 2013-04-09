@@ -18,7 +18,7 @@ class AssetAssignmentsControllerTest < ActionController::TestCase
 
   test "should create asset_assignment" do
     assert_difference('AssetAssignment.count') do
-      post :create, asset_assignment: { asset_id: @asset_assignment.asset_id, assigned_date: @asset_assignment.assigned_date, assignee_id: @asset_assignment.assignee_id, assignee_name: @asset_assignment.assignee_name, returned_date: @asset_assignment.returned_date }
+      post :create, asset_assignment: { asset_id: @asset_assignment.asset_id, assigned_date: @asset_assignment.assigned_date, assignee_id: @asset_assignment.assignee_id, assignee_name: @asset_assignment.assignee_name }
     end
 
     assert_redirected_to asset_assignment_path(assigns(:asset_assignment))
@@ -35,7 +35,7 @@ class AssetAssignmentsControllerTest < ActionController::TestCase
   end
 
   test "should update asset_assignment" do
-    put :update, id: @asset_assignment, asset_assignment: { asset_id: @asset_assignment.asset_id, assigned_date: @asset_assignment.assigned_date, assignee_id: @asset_assignment.assignee_id, assignee_name: @asset_assignment.assignee_name, returned_date: @asset_assignment.returned_date }
+    put :update, id: @asset_assignment, asset_assignment: { asset_id: @asset_assignment.asset_id, assigned_date: @asset_assignment.assigned_date, assignee_id: @asset_assignment.assignee_id, assignee_name: @asset_assignment.assignee_name }
     assert_redirected_to asset_assignment_path(assigns(:asset_assignment))
   end
 
