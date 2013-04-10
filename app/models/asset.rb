@@ -5,7 +5,7 @@ class Asset < ActiveRecord::Base
   validates :serial_number, :presence => true;
   validates :make_year, :presence => true;
   belongs_to :asset_type
-  has_one :asset_assignments
+  has_one :asset_assignment
   
   before_destroy :ensure_no_assignment
   
