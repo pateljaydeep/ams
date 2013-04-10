@@ -5,14 +5,20 @@ class Asset < ActiveRecord::Base
   validates :serial_number, :presence => true;
   validates :make_year, :presence => true;
   belongs_to :asset_type
-  has_many :asset_assignments
+  has_one :asset_assignments
   
   before_destroy :ensure_no_assignment
   
   private
     def ensure_no_assignment
-      assignment = AssetAssignment.find_by_asset_id_and_returned_date(self.id,nil)
-      errors.add(:base, "Cannot be deleted.   The asset is currently assigned to #{assignment.assignee_name}") unless assignment == nil
-      return false
+      assetAssmt = nil
+      begin
+        assetAssmt = AssetAssignment.find_by_asset_id(self.id)
+      rescue
+      end
+      if assetAssmt != nil
+        errors.add(:base, "Cannot be deleted.   The asset is currently assigned to #{assetAssmt.assignee_name}") unless assetAssmt == nil
+        return false
+      end
     end
 end
