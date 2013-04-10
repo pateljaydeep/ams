@@ -12,7 +12,7 @@ class AssetsController < ApplicationController
   
   def specificAsset
     page "asset"
-    @assets = Asset.includes(:asset_type).where("asset_type_id = ?", params[:typeId])
+    @assets = Asset.includes(:asset_type, :asset_assignment).where("asset_type_id = ?", params[:typeId])
     respond_to do |format|
       format.html { render action: "index" }
       format.json { render json: @assets }
