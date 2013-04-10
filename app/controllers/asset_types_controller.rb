@@ -9,6 +9,17 @@ class AssetTypesController < ApplicationController
       format.json { render json: @asset_types }
     end
   end
+  
+  # GET /asset_type/1/assets
+  # GET /asset_type/1/assets.json
+  def assets
+    page "asset"
+    @assets = Asset.includes(:asset_type, :asset_assignment).where("asset_type_id = ?", params[:id])
+    respond_to do |format|
+      format.html { render template: "assets/index" }
+      format.json { render json: @assets }
+    end
+  end
 
   # GET /asset_types/1
   # GET /asset_types/1.json

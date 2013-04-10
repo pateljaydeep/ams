@@ -2,16 +2,17 @@ Ams::Application.routes.draw do
   
   resources :asset_assignments
 
-
   root :to => "home#index"
   
   get "home" , {:action=>"index", :controller=>"home"}
-  get "/assetsbytype/:typeId", {:action=>"specificAsset", :controller=>"assets"}
-  
 
   resources :asset_assignments
-  resources :assets
-  resources :asset_types
+  resources :assets do
+    get :unassigned, on: :collection
+  end
+  resources :asset_types do 
+    get :assets, on: :member
+  end
   
   controller :sessions do
     get  'login' => :new

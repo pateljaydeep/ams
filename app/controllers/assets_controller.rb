@@ -10,9 +10,11 @@ class AssetsController < ApplicationController
     end
   end
   
-  def specificAsset
-    page "asset"
-    @assets = Asset.includes(:asset_type, :asset_assignment).where("asset_type_id = ?", params[:typeId])
+  # GET /assets/unassigned
+  # GET /assets/unassigned.json
+  def unassigned
+    page "allocations"
+    @assets = Asset.joins("left outer join asset_assignments aa on assets.id = aa.asset_id").where("aa.asset_id is null")
     respond_to do |format|
       format.html { render action: "index" }
       format.json { render json: @assets }

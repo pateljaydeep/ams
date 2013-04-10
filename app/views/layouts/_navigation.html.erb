@@ -15,13 +15,13 @@
 					<li><a href="#">Asset Bulk upload</a></li>
 				</ul>
 			</li>
-			<li class="dropdown <% if @page=="reports" %>active<% end %>">
+			<li class="dropdown <% if @page=="allocations" %>active<% end %>">
 				<a class="dropdown-toggle" href="<%=assets_path%>">Allocations</a>
 				<ul class="dropdown-menu">
 					<li><a href="#">Assign</a></li>
 					<li class="divider"></li>
 					<li><a href="#">Assets - by Employee</a></li>
-					<li><a href="#">Assets - by Unassigned</a></li>
+					<li><%= link_to "Assets - by Unassigned", unassigned_assets_path %></li>
 				</ul>
 			</li>
 		</ul>
