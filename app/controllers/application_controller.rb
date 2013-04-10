@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protected
     def authorize
       unless session[:user_id] != nil
-        redirect_to login_url, notice: "Please log in"
+        redirect_to login_url
       end
     end
     

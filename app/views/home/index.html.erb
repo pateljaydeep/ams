@@ -1,95 +1,38 @@
 <div class="container">
 	<div class="row big-spacer">
-		<div class="span3">
-			<% @asset_types.each do |asset_type| %>
-				<%if asset_type.name == "Laptop" %>
-					<center>
-						<%=asset_type.name%>
-						<br/>
-						<%= link_to image_tag("asset_types/notebook-icon.png"), assets_asset_type_path(asset_type) %>
-						<br/>	
-					</center>
-				<% end %>
-			<% end %>
-		</div>
-		<div class="span3">
-			<% @asset_types.each do |asset_type| %>
-				<%if asset_type.name == "Monitor" %>
-					<center>
-						<%=asset_type.name%>
-						<br/>
-						<%= link_to image_tag("asset_types/monitor-icon.png"), assets_asset_type_path(asset_type) %>
-					</center>
-				<% end %>
-			<% end %>
-		</div>
-		<div class="span3">
-			<% @asset_types.each do |asset_type| %>
-				<%if asset_type.name == "Server" %>
-					<center>
-						<%=asset_type.name%>
-						<br/>
-						<%= link_to image_tag("asset_types/server-icon.png"), "/assetsbytype/" + asset_type.id.to_s %>
-					</center>
-				<% end %>
-			<% end %>
-		</div>
-		<div class="span3">
-			<% @asset_types.each do |asset_type| %>
-				<%if asset_type.name == "Workstation" %>
-					<center>
-						<%=asset_type.name%>
-						<br/>
-						<%= link_to image_tag("asset_types/workstation-icon.png"), assets_asset_type_path(asset_type) %>
-					</center>
-				<% end %>
-			<% end %>
-		</div>
+		<%= render(
+			partial: 'asset_types/asset_type', 
+			object: find_asset_type("Laptop", @asset_types), 
+			locals: { img_url: "asset_types/notebook-icon.png"}) %>
+		<%= render(
+			partial: 'asset_types/asset_type', 
+			object: find_asset_type("Monitor", @asset_types), 
+			locals: { img_url: "asset_types/monitor-icon.png"}) %>
+		<%= render(
+			partial: 'asset_types/asset_type', 
+			object: find_asset_type("Server", @asset_types), 
+			locals: { img_url: "asset_types/server-icon.png"}) %>
+		<%= render(
+			partial: 'asset_types/asset_type', 
+			object: find_asset_type("Workstation", @asset_types), 
+			locals: { img_url: "asset_types/workstation-icon.png"}) %>
 	</div>
 	<div class="row big-spacer">
-		<div class="span3">
-			<% @asset_types.each do |asset_type| %>
-				<%if asset_type.name == "Data Card" %>
-					<center>
-						<%=asset_type.name%>
-						<br/>
-						<%= link_to image_tag("asset_types/datacard-icon.png"), assets_asset_type_path(asset_type) %>
-					</center>
-				<% end %>
-			<% end %>
-		</div>
-		<div class="span3">
-			<% @asset_types.each do |asset_type| %>
-				<%if asset_type.name == "Network Devices" %>
-					<center>
-						<%=asset_type.name%>
-						<br/>
-						<%= link_to image_tag("asset_types/modem-icon.png"), assets_asset_type_path(asset_type) %>
-					</center>
-				<% end %>
-			<% end %>
-		</div>
-		<div class="span3">
-			<% @asset_types.each do |asset_type| %>
-				<%if asset_type.name == "Communication Equipments" %>
-					<center>
-						<%=asset_type.name%>
-						<br/>
-						<%= link_to image_tag("asset_types/phone-icon.png"), assets_asset_type_path(asset_type) %>
-					</center>
-				<% end %>
-			<% end %>
-		</div>
-		<div class="span3">
-			<% @asset_types.each do |asset_type| %>
-				<%if asset_type.name == "Media" %>
-					<center>
-						<%=asset_type.name%>
-						<br/>
-						<%= link_to image_tag("asset_types/cd-icon.png"), assets_asset_type_path(asset_type) %>
-					</center>
-				<% end %>
-			<% end %>
-		</div>
+		<%= render(
+			partial: 'asset_types/asset_type', 
+			object: find_asset_type("Data Card", @asset_types), 
+			locals: { img_url: "asset_types/datacard-icon.png"}) %>
+		<%= render(
+			partial: 'asset_types/asset_type', 
+			object: find_asset_type("Network Devices", @asset_types), 
+			locals: { img_url: "asset_types/modem-icon.png"}) %>
+		<%= render(
+			partial: 'asset_types/asset_type', 
+			object: find_asset_type("Media", @asset_types), 
+			locals: { img_url: "asset_types/phone-icon.png"}) %>
+		<%= render(
+			partial: 'asset_types/asset_type', 
+			object: find_asset_type("Workstation", @asset_types), 
+			locals: { img_url: "asset_types/cd-icon.png"}) %>
 	</div>
 </div>
