@@ -44,9 +44,11 @@ class AssetAssignmentsController < ApplicationController
 
     respond_to do |format|
       if @asset_assignment.save
+        format.js {render :js => "assetAssignmentSuccess()"}
         format.html { redirect_to @asset_assignment, notice: 'Asset assignment was successfully created.' }
         format.json { render json: @asset_assignment, status: :created, location: @asset_assignment }
       else
+        format.js {render action:"assignment_error"}
         format.html { render action: "new" }
         format.json { render json: @asset_assignment.errors, status: :unprocessable_entity }
       end

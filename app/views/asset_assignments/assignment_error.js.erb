@@ -1,0 +1,7 @@
+<% if @asset_assignment.errors.any? %>
+   $("div#assetAssignmentSuccess").hide()
+   $("#assignAssetButton").show()
+   $("#assignAssetCloseButton").show()
+   $("div#error_explanation").html('<h2><%= pluralize(@asset_assignment.errors.count, "error") %> prohibited this asset_assignment from being saved:</h2><ul><% @asset_assignment.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %></ul>')
+   $("div#error_explanation").show()
+  <% end %>

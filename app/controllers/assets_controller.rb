@@ -3,7 +3,8 @@ class AssetsController < ApplicationController
   # GET /assets.json
   def index
     page "asset"
-    @assets = Asset.all
+    @assets = Asset.includes(:asset_type, :asset_assignment).all
+    @employees = getEmployeesInfoMap
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @assets }

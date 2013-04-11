@@ -14,14 +14,18 @@
 	<tbody>
 		<% @assets.each do |asset| %>
 		<tr>
-			<td><%= asset.asset_type.name %></td>
+			<td class="assetType"><%= asset.asset_type.name %></td>
 			<td class="hidden-phone"><%= asset.description %></td>
 			<td class="hidden-phone"><%= asset.manufacturer %></td>
-			<td><%= asset.serial_number %></td>
+			<td class="serialNo"><%= asset.serial_number %></td>
 			<td>
 				<%= link_to raw('<i class="icon-pencil"></i>'), asset %>
 				<%= link_to raw('<i class="icon-edit"></i>'), edit_asset_path(asset)%>
-				<%= link_to raw('<i class="icon-trash"></i>'), asset, method: :delete, data: { confirm: 'Are you sure?' } %>
+				<%= link_to raw('<i class="icon-user"></i>'), asset, "id" => "retainAsset#{asset.id.to_s}", "class" => "retainAsset", "data-toggle" => "modal", "role" => "button", "href" => "#retainAssetDialog" %>
+				<%= link_to raw('<i class="icon-trash"></i>'), asset, "id" => "deleteAsset#{asset.id.to_s}", "class" => "deleteAsset", method: :delete, data: { confirm: 'Are you sure?' } %>
+				<%= link_to raw('<i class="icon-plus-sign"></i>'), asset, "id" => "assignAsset#{asset.id.to_s}", "class" => "assignAsset", "data-toggle" => "modal", "role" => "button", "href" => "#assignAssetDialog" %>
+				<%= hidden_field :asset, asset.id.to_s, "value" => asset.id.to_s, "class" => "assetId"  %>
+				<%= hidden_field :asset, "#{asset.id.to_s}#{asset.serial_number}", "value" => asset.asset_assignment.nil?, "class" => "isAssetUnassigned"  %>
 			</td>
 		</tr>
 		<% end %>
@@ -29,4 +33,5 @@
 </table>
 <%end%>
 
+<%= render partial: 'asset_assignments/assetAssignment' %>
 

@@ -1,0 +1,30 @@
+<div id="assignAssetDialog" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <%= form_for(AssetAssignment.new, :remote => true) do |f| %>
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	<h3 id="myModalLabel">Asset Assignment</h3>
+	</div>
+	<div class="modal-body">
+		<div id="assetAssignmentSuccess" class="alert alert-success">
+			<a class="close" data-dismiss="alert">×</a>
+			<div id="flash_notice">Asset assignment successful!</div>
+	    </div>
+	    <div id="error_explanation">
+	    </div>
+		<div class = "row-fluid">
+			<p><b>Asset type: </b><span id = "assetTypeToBeAssigned"></span></p>
+			<p><b>Serial#: </b><span id = "assetSerialNoToBeAssigned"></span></p>
+		</div>
+		<div class="field" ><%= f.label :assigned_date %><%= f.text_field :assigned_date, id: 'assigned_date', readonly: 'true' %></div>
+		<div class="field" ><%= f.label :assignee_id %><%= select("asset_assignment", "assignee_id", @employees, {:prompt => 'Select Person'}) %></div>
+		
+		<%= hidden_field :asset_assignment, :asset_id, id: 'asset_id'  %>
+		<%= hidden_field :asset_assignment, :assignee_name, id: 'assignee_name'  %>
+		
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true" id = "assignAssetCloseButton">Close</button>
+		<%= f.submit "Create Asset Assignment", class: "btn", "id" => "assignAssetButton" %>
+	</div>
+  <% end %>
+</div>
