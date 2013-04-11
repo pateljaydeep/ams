@@ -1,0 +1,15 @@
+
+<%= form_tag by_employee_assets_path, method: 'get', class: 'by-employee form-search form-horizontal' do %>
+<div class="control-group">
+  <%= label_tag :assignee_name, "Employee name", class: "control-label" %>
+  <div class="controls">
+    <div class="input-append">
+      <%= text_field_tag :assignee_name, params[:assignee_name], class: 'search-query' %>
+      <%= submit_tag "Search", name: nil, class: 'btn' %>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<h3 class="heading">Assets (filtered by %<%=params[:assignee_name]%>%)</h3>
+<%= render partial: "assets/table", object: @assets %>

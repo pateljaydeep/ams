@@ -14,10 +14,17 @@ class AssetTypesController < ApplicationController
   # GET /asset_type/1/assets.json
   def assets
     page "asset"
-    @assets = Asset.includes(:asset_type, :asset_assignment).where("asset_type_id = ?", params[:id])
-    respond_to do |format|
-      format.html { render template: "assets/index" }
-      format.json { render json: @assets }
+    begin
+      @asset_type = AssetType.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error "Attempt to find asset by invalid asset type #{params[:id]} failed."
+      redirect_to root_url, notice: 'Asset type does not exists.'
+    else
+      respond_to do |format|
+        @assets = Asset.includes(:asset_type, :asset_assignment).where("asset_type_id = ?", params[:id])
+        format.html
+        format.json { render json: @assets }
+      end
     end
   end
 

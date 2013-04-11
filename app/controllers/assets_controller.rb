@@ -16,7 +16,16 @@ class AssetsController < ApplicationController
     page "allocations"
     @assets = Asset.joins("left outer join asset_assignments aa on assets.id = aa.asset_id").where("aa.asset_id is null")
     respond_to do |format|
-      format.html { render action: "index" }
+      format.html 
+      format.json { render json: @assets }
+    end
+  end
+  
+  def by_employee 
+    page "allocations"
+    @assets = Asset.joins(:asset_assignment).where("asset_assignments.assignee_name like ?", "%#{params[:assignee_name]}%")
+    respond_to do |format|
+      format.html 
       format.json { render json: @assets }
     end
   end

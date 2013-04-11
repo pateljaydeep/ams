@@ -146,3 +146,20 @@ label.mandatory:after {
 .field_with_errors input {
   border-color: #b94a48;
 }
+
+.table {
+  th {
+    background-color: #DCFAFF;
+    border-left: 1px solid #fff;
+  }
+  td {
+    background-color: #F3FCFF;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+  }
+}
+
+
+.by-employee {
+  margin-top: 20px;
+}

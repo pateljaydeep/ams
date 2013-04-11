@@ -9,6 +9,7 @@ Ams::Application.routes.draw do
   resources :asset_assignments
   resources :assets do
     get :unassigned, on: :collection
+    get :by_employee, on: :collection
   end
   resources :asset_types do 
     get :assets, on: :member
