@@ -1,69 +1,83 @@
 <%= form_for(@asset) do |f| %>
-	
+
+  <% if @asset.errors.any? %>
+    <div class="alert alert-error">
+      <ul>
+      <% @asset.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
 <div class="row-fluid">
   <div class="field span4">
-    <%= f.label :asset_id %><br />
-    <%= f.text_field :asset_id %>
+    <%= f.label :asset_id, class: "mandatory" %>
+    <%= f.text_field :asset_id, class: "input-block-level", placeholder: "e.g. RDEN123" %>
   </div>
   <div class="field span4">
-    <%= f.label :manufacturer %><br />
-    <%= f.text_field :manufacturer %>
+    <%= f.label :asset_type_id %>
+    <%= select("asset", "asset_type_id", AssetType.all.collect { |a| [ a.name, a.id ] }, {}, { class: "input-block-level"}) %>
   </div>
   <div class="field span4">
-    <%= f.label :asset_type_id %><br />
-    <%= select("asset", "asset_type_id", AssetType.all.collect { |a| [ a.name, a.id ] }) %>
+    <%= f.label :serial_number, class: "mandatory" %>
+    <%= f.text_field :serial_number, class: "input-block-level", placeholder: "e.g. HP1234X45" %>
   </div>
 </div>
 <div class="row-fluid">
   <div class="field span4">
-    <%= f.label :description %><br />
-    <%= f.text_area :description, rows: 3 %>
+    <%= f.label :purchase_date, class: "mandatory" %>
+    <div class="input-append date" id="purchase_date">
+      <%= f.text_field :purchase_date, readonly: 'true', class: "input-block-level" %>
+    </div>
   </div>
   <div class="field span4">
-    <%= f.label :purchase_date %><br />
-    <%= f.text_field :purchase_date, id: 'purchase_date', readonly: 'true' %>
+    <%= f.label :release_date %>
+    <div class="input-append date" id="release_date">
+      <%= f.text_field :release_date, readonly: 'true', class: "input-block-level" %>
+    </div>
   </div>
   <div class="field span4">
-    <%= f.label :release_date %><br />
-    <%= f.text_field :release_date, id: 'release_date', readonly: 'true' %>
+    <%= f.label :operating_system %>
+    <%= f.text_field :operating_system, class: "input-block-level", placeholder: "e.g. Windows 7 or XP" %>
+  </div>
+</div>
+<div class="row-fluid">
+  <div class="field span12">
+    <%= f.label :description %>
+    <%= f.text_area :description, rows: 3, class: "input-block-level" %>
   </div>
 </div>
 <div class="row-fluid">
   <div class="field span4">
-    <%= f.label :asset_image %><br />
-    <%= f.text_field :asset_image %>
+    <%= f.label :manufacturer %>
+    <%= f.text_field :manufacturer, class: "input-block-level", placeholder: "e.g. HP, DELL" %>
   </div>
   <div class="field span4">
-    <%= f.label :asset_documents %><br />
-    <%= f.text_field :asset_documents %>
+    <%= f.label :make_year, class: "mandatory" %>
+    <%= f.number_field :make_year, class: "input-block-level", placeholder: "e.g. 2012" %>
   </div>
   <div class="field span4">
-    <%= f.label :serial_number %><br />
-    <%= f.text_field :serial_number %>
-  </div>
-</div>
-<div class="row-fluid">
-  <div class="field span4">
-    <%= f.label :model %><br />
-    <%= f.text_field :model %>
-  </div>
-  <div class="field span4">
-    <%= f.label :make_year %><br />
-    <%= f.number_field :make_year %>
-  </div>
-  <div class="field span4">
-    <%= f.label :display_size %><br />
-    <%= f.text_field :display_size %>
+    <%= f.label :model %>
+    <%= f.text_field :model, class: "input-block-level", placeholder: "e.g. 8470p" %>
   </div>
 </div>
 <div class="row-fluid">
   <div class="field span4">
-    <%= f.label :operating_system %><br />
-    <%= f.text_field :operating_system %>
+    <%= f.label :asset_image %>
+    <%= f.text_field :asset_image, class: "input-block-level", placeholder: "e.g. /hp8470p.jpg" %>
+  </div>
+  <div class="field span4">
+    <%= f.label :asset_documents %>
+    <%= f.text_field :asset_documents, class: "input-block-level", placeholder: "e.g. assignment.zip" %>
+  </div>
+  <div class="field span4">
+    <%= f.label :display_size %>
+    <%= f.text_field :display_size, class: "input-block-level", placeholder: "e.g 17"%>
   </div>
 </div>
   <div class="actions">
-    <%= f.submit "Save", class: "btn" %>
+    <%= f.submit "Save", class: "btn btn-primary" %>
   </div>
  </div>
 <% end %>

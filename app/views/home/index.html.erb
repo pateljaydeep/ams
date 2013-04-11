@@ -1,5 +1,5 @@
-<div class="container">
-	<div class="row big-spacer">
+
+	<div class="row-fluid big-spacer">
 		<%= render(
 			partial: 'asset_types/asset_type', 
 			object: find_asset_type("Laptop", @asset_types), 
@@ -17,7 +17,7 @@
 			object: find_asset_type("Workstation", @asset_types), 
 			locals: { img_url: "asset_types/workstation-icon.png"}) %>
 	</div>
-	<div class="row big-spacer">
+	<div class="row-fluid big-spacer">
 		<%= render(
 			partial: 'asset_types/asset_type', 
 			object: find_asset_type("Data Card", @asset_types), 
@@ -35,4 +35,3 @@
 			object: find_asset_type("Workstation", @asset_types), 
 			locals: { img_url: "asset_types/cd-icon.png"}) %>
 	</div>
-</div>

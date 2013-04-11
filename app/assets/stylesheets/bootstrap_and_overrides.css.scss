@@ -109,3 +109,29 @@ body {
   border-right-style:solid;
   min-height: 180px;
 }
+
+@media (min-width: 1200px) {
+  .container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+    width: 940px;
+  }
+}
+
+.heading {
+  border-bottom: 5px solid #0082C8;
+  margin-bottom: 30px;
+  margin-top: 40px;
+}
+
+.actions {
+  margin-top: 30px;
+}
+
+label {
+  font-weight: bold;
+}
+
+label.mandatory:after {
+  content: '*';
+  color: #b94a48;
+  padding-left: 3px;
+}
