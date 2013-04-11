@@ -50,8 +50,13 @@
 			<%= @asset.purchase_date %>
 		</p>
 		<p>
-			<b>Asset Status:</b>
-			NOT ASSIGNED
+			<%if @asset.asset_assignment.nil?%>
+			  <b>Asset Status:</b>
+			  NOT ASSIGNED
+			<%else%>
+			  <b>Assigned to:</b>
+			  <%= @asset.asset_assignment.assignee_name%>
+			<%end%>
 		</p>
 		<p>
 			<b>Documents Ref:</b>
