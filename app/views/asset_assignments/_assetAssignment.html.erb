@@ -23,8 +23,8 @@
 		
 	</div>
 	<div class="modal-footer">
-		<button class="btn" data-dismiss="modal" aria-hidden="true" id = "assignAssetCloseButton">Close</button>
-		<%= f.submit "Create Asset Assignment", class: "btn", "id" => "assignAssetButton" %>
+		<%= f.submit "Save", class: "btn btn-primary", "id" => "assignAssetButton" %>
+		<input type="button" value="Close" class="btn" data-dismiss="modal" aria-hidden="true" id = "assignAssetCloseButton">
 	</div>
   <% end %>
 </div>
