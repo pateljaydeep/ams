@@ -135,3 +135,14 @@ label.mandatory:after {
   color: #b94a48;
   padding-left: 3px;
 }
+
+.field_with_errors label {
+  #padding: 2px;
+  #background-color: red;
+  #display: table;
+  color: #b94a48;
+}
+
+.field_with_errors input {
+  border-color: #b94a48;
+}
