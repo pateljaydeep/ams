@@ -1,0 +1,31 @@
+<h1>Listing asset_allocation_histories</h1>
+
+<table>
+  <tr>
+    <th>Assignee</th>
+    <th>Assignee name</th>
+    <th>Assigned date</th>
+    <th>Returned date</th>
+    <th>Asset</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @asset_allocation_histories.each do |asset_allocation_history| %>
+  <tr>
+    <td><%= asset_allocation_history.assignee_id %></td>
+    <td><%= asset_allocation_history.assignee_name %></td>
+    <td><%= asset_allocation_history.assigned_date %></td>
+    <td><%= asset_allocation_history.returned_date %></td>
+    <td><%= asset_allocation_history.asset_id %></td>
+    <td><%= link_to 'Show', asset_allocation_history %></td>
+    <td><%= link_to 'Edit', edit_asset_allocation_history_path(asset_allocation_history) %></td>
+    <td><%= link_to 'Destroy', asset_allocation_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Asset allocation history', new_asset_allocation_history_path %>

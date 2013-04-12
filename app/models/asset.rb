@@ -6,6 +6,7 @@ class Asset < ActiveRecord::Base
   validates :make_year, :presence => true;
   belongs_to :asset_type
   has_one :asset_assignment
+  has_many :asset_allocation_histories
   
   before_destroy :ensure_no_assignment
   

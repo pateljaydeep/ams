@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  assignee_id: MyString
+  assignee_name: MyString
+  assigned_date: 2013-04-12
+  returned_date: 2013-04-12
+  asset_id: 1
+
+two:
+  assignee_id: MyString
+  assignee_name: MyString
+  assigned_date: 2013-04-12
+  returned_date: 2013-04-12
+  asset_id: 1

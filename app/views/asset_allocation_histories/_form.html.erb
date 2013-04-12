@@ -1,0 +1,37 @@
+<%= form_for(@asset_allocation_history) do |f| %>
+  <% if @asset_allocation_history.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@asset_allocation_history.errors.count, "error") %> prohibited this asset_allocation_history from being saved:</h2>
+
+      <ul>
+      <% @asset_allocation_history.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :assignee_id %><br />
+    <%= f.text_field :assignee_id %>
+  </div>
+  <div class="field">
+    <%= f.label :assignee_name %><br />
+    <%= f.text_field :assignee_name %>
+  </div>
+  <div class="field">
+    <%= f.label :assigned_date %><br />
+    <%= f.date_select :assigned_date %>
+  </div>
+  <div class="field">
+    <%= f.label :returned_date %><br />
+    <%= f.date_select :returned_date %>
+  </div>
+  <div class="field">
+    <%= f.label :asset_id %><br />
+    <%= f.number_field :asset_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409193311) do
+ActiveRecord::Schema.define(:version => 20130412071032) do
+
+  create_table "asset_allocation_histories", :force => true do |t|
+    t.string   "assignee_id"
+    t.string   "assignee_name"
+    t.date     "assigned_date"
+    t.date     "returned_date"
+    t.integer  "asset_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "asset_assignments", :force => true do |t|
     t.string   "assignee_id"

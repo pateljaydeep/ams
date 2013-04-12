@@ -28,10 +28,15 @@ $(document).ready ->
   
   window.assetAssignmentSuccess = ()->
     $("div#error_explanation").hide()
+    
     assignedAssetId=$("input#asset_id").val()
     $("a#deleteAsset"+assignedAssetId).hide()
     $("a#assignAsset"+assignedAssetId).hide()
     $("a#retainAsset"+assignedAssetId).show()
+    $("input#asset_assigneeName"+assignedAssetId).val($("select#asset_assignment_assignee_id option:selected").text().split("[")[0])
+    $("input#asset_assigneeId"+assignedAssetId).val($("select#asset_assignment_assignee_id").val())
+    $("input#asset_assignedDate"+assignedAssetId).val($("input#assigned_date").val())
+    
     $("#assignAssetButton").hide()
     $("#assignAssetCloseButton").show()
     $("div#assetAssignmentSuccess").show()

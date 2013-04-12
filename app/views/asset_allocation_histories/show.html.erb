@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Assignee:</b>
+  <%= @asset_allocation_history.assignee_id %>
+</p>
+
+<p>
+  <b>Assignee name:</b>
+  <%= @asset_allocation_history.assignee_name %>
+</p>
+
+<p>
+  <b>Assigned date:</b>
+  <%= @asset_allocation_history.assigned_date %>
+</p>
+
+<p>
+  <b>Returned date:</b>
+  <%= @asset_allocation_history.returned_date %>
+</p>
+
+<p>
+  <b>Asset:</b>
+  <%= @asset_allocation_history.asset_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_asset_allocation_history_path(@asset_allocation_history) %> |
+<%= link_to 'Back', asset_allocation_histories_path %>

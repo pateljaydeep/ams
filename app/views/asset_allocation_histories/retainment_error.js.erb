@@ -1,0 +1,7 @@
+<% if @asset_allocation_history.errors.any? %>
+   $("div#assetRetainmentSuccess").hide()
+   $("#retainAssetButton").show()
+   $("#retainAssetCloseButton").show()
+   $("div#error_explanation_retain").html('<h2><%= pluralize(@asset_allocation_history.errors.count, "error") %> prohibited this Retain action from being saved:</h2><ul><% @asset_allocation_history.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %></ul>')
+   $("div#error_explanation_retain").show()
+  <% end %>

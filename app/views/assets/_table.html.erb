@@ -26,6 +26,15 @@
 				<%= link_to raw('<i class="icon-plus-sign"></i>'), asset, "id" => "assignAsset#{asset.id.to_s}", "class" => "assignAsset", "data-toggle" => "modal", "role" => "button", "href" => "#assignAssetDialog" %>
 				<%= hidden_field :asset, asset.id.to_s, "value" => asset.id.to_s, "class" => "assetId"  %>
 				<%= hidden_field :asset, "#{asset.id.to_s}#{asset.serial_number}", "value" => asset.asset_assignment.nil?, "class" => "isAssetUnassigned"  %>
+				<%if asset.asset_assignment.nil?%>
+				<%= hidden_field :asset, "assigneeName#{asset.id.to_s}", "value" => "", "class" => "assigneeName"  %>
+				<%= hidden_field :asset, "assigneeId#{asset.id.to_s}", "value" => "", "class" => "assigneeId"  %>
+				<%= hidden_field :asset, "assignedDate#{asset.id.to_s}", "value" => "", "class" => "assignedDate"  %>
+				<%else%>
+				<%= hidden_field :asset, "assigneeName#{asset.id.to_s}", "value" => asset.asset_assignment.assignee_name, "class" => "assigneeName"  %>
+				<%= hidden_field :asset, "assigneeId#{asset.id.to_s}", "value" => asset.asset_assignment.assignee_id, "class" => "assigneeId"  %>
+				<%= hidden_field :asset, "assignedDate#{asset.id.to_s}", "value" => asset.asset_assignment.assigned_date, "class" => "assignedDate"  %>
+				<%end%>
 			</td>
 		</tr>
 		<% end %>
@@ -34,4 +43,5 @@
 <%end%>
 
 <%= render partial: 'asset_assignments/assetAssignment' %>
+<%= render partial: 'asset_allocation_histories/assetRetainment' %>
 
