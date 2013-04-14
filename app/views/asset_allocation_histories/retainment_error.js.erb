@@ -2,7 +2,7 @@ $("div#assetRetainmentSuccess").hide()
 $("#retainAssetButton").show()
 $("#retainAssetCloseButton").show()
 <% if @asset_allocation_history.errors.any? %>
-   $("div#error_explanation_retain").html('<%= pluralize(@asset_allocation_history.errors.count, "error") %> prohibited this Retain action from being saved:<ul><% @asset_allocation_history.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %></ul>')
+   $("div#error_explanation_retain").html('Following validation errors prohibited this Retain action from being saved:<ul><% @asset_allocation_history.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %></ul>')
 <% else %>
    $("div#error_explanation_retain").html('Asset Retain failed.  Please check if this asset is assigned.')
 <% end %>
