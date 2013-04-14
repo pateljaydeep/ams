@@ -1,6 +1,8 @@
 class AssetAllocationHistory < ActiveRecord::Base
   attr_accessible :asset_id, :assigned_date, :assignee_id, :assignee_name, :returned_date
   
+  attr_reader :exceptionVar
+  
   belongs_to :asset
   
   before_create :ensure_returned_date_after_assigned_date, :ensure_asset_not_assigned
@@ -10,6 +12,25 @@ class AssetAllocationHistory < ActiveRecord::Base
   validates :returned_date, :presence => true
   validates :assignee_id, :presence => true
   validates :assignee_name, :presence => true
+  
+  def logAllocationHistory
+    begin
+      AssetAllocationHistory.transaction do
+        assetAssignment = AssetAssignment.find_by_asset_id(self.asset_id)
+        
+        self.asset_id = assetAssignment.asset_id
+        self.assigned_date = assetAssignment.assigned_date
+        self.assignee_name = assetAssignment.assignee_name
+        self.assignee_id = assetAssignment.assignee_id
+        
+        assetAssignment.destroy
+        
+        self.save!
+      end
+    rescue
+      return false
+    end    
+  end
   
   private
   

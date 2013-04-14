@@ -42,21 +42,9 @@ class AssetAllocationHistoriesController < ApplicationController
   def create
     
     @asset_allocation_history = AssetAllocationHistory.new(params[:asset_allocation_history])
-    
-    assetAssignment = AssetAssignment.find_by_asset_id(@asset_allocation_history.asset_id)
-    
-    @asset_allocation_history.asset_id = assetAssignment.asset_id
-    @asset_allocation_history.assigned_date = assetAssignment.assigned_date
-    @asset_allocation_history.assignee_name = assetAssignment.assignee_name
-    @asset_allocation_history.assignee_id = assetAssignment.assignee_id
-    
-    begin
-      assetAssignment.destroy
-    rescue
-    end
 
     respond_to do |format|
-      if @asset_allocation_history.save
+      if @asset_allocation_history.logAllocationHistory
         format.js {render :js => "assetRetainmentSuccess()"}
         format.html { redirect_to @asset_allocation_history, notice: 'Asset allocation history was successfully created.' }
         format.json { render json: @asset_allocation_history, status: :created, location: @asset_allocation_history }
