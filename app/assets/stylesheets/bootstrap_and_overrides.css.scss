@@ -148,6 +148,8 @@ label.mandatory:after {
 }
 
 .table {
+  table-layout: fixed;
+  
   th {
     background-color: #DCFAFF;
     border-left: 1px solid #fff;
@@ -157,9 +159,27 @@ label.mandatory:after {
     border-top: 1px solid #fff;
     border-left: 1px solid #fff;
   }
+  
+  .clickable {
+    cursor: hand;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  .asset_type, .action {
+    width: 10%;
+  }
+  
+  .serial, .mfg {
+    width: 20%;
+  }
 }
 
 
 .by-employee {
   margin-top: 20px;
 }
+
+

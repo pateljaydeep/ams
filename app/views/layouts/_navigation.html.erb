@@ -16,10 +16,8 @@
 				</ul>
 			</li>
 			<li class="dropdown <% if @page=="allocations" %>active<% end %>">
-				<a class="dropdown-toggle" href="<%=assets_path%>">Allocations</a>
+				<a class="dropdown-toggle" href="#">Allocations</a>
 				<ul class="dropdown-menu">
-					<li><a href="#">Assign</a></li>
-					<li class="divider"></li>
 					<li><%= link_to "Assets - by Employee", by_employee_assets_path %></li>
 					<li><%= link_to "Assets - by Unassigned", unassigned_assets_path %></li>
 				</ul>

@@ -5,3 +5,6 @@ $(document).ready ->
   $("#asset_purchase_date, #asset_release_date").parent().append('<span class="add-on"><i class="icon-calendar"></i></span>')
   $("#purchase_date").datepicker()
   $("#release_date").datepicker()
+  $(".clickable").each(() ->
+    $(this).click( ()-> window.location = $(this).parent('tr').attr('url') )
+  )

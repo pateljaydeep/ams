@@ -11,5 +11,5 @@
 </div>
 <% end %>
 
-<h3 class="heading">Assets (filtered by %<%=params[:assignee_name]%>%)</h3>
+<h3 class="heading">Assets (filtered by <%=(nil==params[:assignee_name]) ? "ALL" : params[:assignee_name]%>)</h3>
 <%= render partial: "assets/table", object: @assets %>

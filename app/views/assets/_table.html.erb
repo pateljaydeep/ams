@@ -4,22 +4,21 @@
 <table class="table table-hover">
 	<thead>
 		<tr>
-			<th>Type</th>
-			<th class="hidden-phone">Description</th>
-			<th class="hidden-phone">Mfg.</th>
-			<th>Serial #</th>
-			<th>Action</th>
+			<th class="asset_type">Type</th>
+			<th class="description hidden-phone">Description</th>
+			<th class="mfg hidden-phone">Mfg.</th>
+			<th class="serial">Serial #</th>
+			<th class="action">Action</th>
 		</tr>
 	</thead>
 	<tbody>
 		<% @assets.each do |asset| %>
-		<tr>
-			<td class="assetType"><%= asset.asset_type.name %></td>
-			<td class="hidden-phone"><%= asset.description %></td>
-			<td class="hidden-phone"><%= asset.manufacturer %></td>
-			<td class="serialNo"><%= asset.serial_number %></td>
+		<tr url="<%= asset_path(asset) %>">
+			<td class="clickable"><%= asset.asset_type.name %></td>
+			<td class="clickable hidden-phone"><%= asset.description %></td>
+			<td class="clickable hidden-phone"><%= asset.manufacturer %></td>
+			<td class="clickable"><%= asset.serial_number %></td>
 			<td>
-				<%= link_to raw('<i class="icon-pencil"></i>'), asset %>
 				<%= link_to raw('<i class="icon-edit"></i>'), edit_asset_path(asset)%>
 				<%= link_to raw('<i class="icon-user"></i>'), asset, "id" => "retainAsset#{asset.id.to_s}", "class" => "retainAsset", "data-toggle" => "modal", "role" => "button", "href" => "#retainAssetDialog" %>
 				<%= link_to raw('<i class="icon-trash"></i>'), asset, "id" => "deleteAsset#{asset.id.to_s}", "class" => "deleteAsset", method: :delete, data: { confirm: 'Are you sure?' } %>
