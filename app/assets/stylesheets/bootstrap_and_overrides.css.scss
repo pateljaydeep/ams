@@ -199,3 +199,12 @@ label.mandatory:after {
 .pagination {
   margin: 5px 0;
 }
+
+.page-size {
+  margin: 5px 0;
+  position: absolute;
+  
+  select {
+    width: 60px;
+  }
+}

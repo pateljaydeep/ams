@@ -41,6 +41,13 @@
 	<tfoot>
 		<tr>
 			<td colspan="5">
+				<span class="page-size">
+				<%= select_tag(
+					:per_page,
+					options_for_select([10,20,50], params[:per_page] == nil ? 10 : params[:per_page]),
+					onchange: "if(this.value){window.location='?per_page='+this.value;}") %>
+				</span>
+				<span>
 				<%= will_paginate(
 					@assets, 
 					class: 'pagination pagination-right pagination-small', 
@@ -48,7 +55,8 @@
 					previous_label: '<i class="icon-chevron-left"></i>',
 					next_label: '<i class="icon-chevron-right"></i>',
 					page_links: false,
-					show_always: true) %>
+					show_always: true) || render(partial: 'fake_pagination') %>
+				</span>
 			</td>
 		</tr>
 	</tfoot>
