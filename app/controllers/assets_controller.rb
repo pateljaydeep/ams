@@ -3,7 +3,7 @@ class AssetsController < ApplicationController
   # GET /assets.json
   def index
     page "asset"
-    @assets = Asset.includes(:asset_type, :asset_assignment).all
+    @assets = Asset.includes(:asset_type, :asset_assignment).paginate(:page => params[:page])
     @employees = getEmployeesInfoMap
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +15,9 @@ class AssetsController < ApplicationController
   # GET /assets/unassigned.json
   def unassigned
     page "allocations"
-    @assets = Asset.joins("left outer join asset_assignments aa on assets.id = aa.asset_id").where("aa.asset_id is null")
+    @assets = Asset.joins("left outer join asset_assignments aa on assets.id = aa.asset_id")
+        .where("aa.asset_id is null")
+        .paginate(:page => params[:page])
     @employees = getEmployeesInfoMap
     respond_to do |format|
       format.html 
@@ -25,7 +27,9 @@ class AssetsController < ApplicationController
   
   def by_employee 
     page "allocations"
-    @assets = Asset.joins(:asset_assignment).where("asset_assignments.assignee_name like ?", "%#{params[:assignee_name]}%")
+    @assets = Asset.joins(:asset_assignment)
+        .where("asset_assignments.assignee_name like ?", "%#{params[:assignee_name]}%")
+        .paginate(:page => params[:page])
     @employees = getEmployeesInfoMap
     respond_to do |format|
       format.html 

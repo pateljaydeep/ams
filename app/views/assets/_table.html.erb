@@ -38,6 +38,20 @@
 		</tr>
 		<% end %>
 	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="5">
+				<%= will_paginate(
+					@assets, 
+					class: 'pagination pagination-right pagination-small', 
+					renderer: BootstrapPagination::Rails,
+					previous_label: '<i class="icon-chevron-left"></i>',
+					next_label: '<i class="icon-chevron-right"></i>',
+					page_links: false,
+					show_always: true) %>
+			</td>
+		</tr>
+	</tfoot>
 </table>
 <%end%>
 

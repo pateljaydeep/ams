@@ -21,7 +21,9 @@ class AssetTypesController < ApplicationController
       redirect_to root_url, notice: 'Asset type does not exists.'
     else
       respond_to do |format|
-        @assets = Asset.includes(:asset_type, :asset_assignment).where("asset_type_id = ?", params[:id])
+        @assets = Asset.includes(:asset_type, :asset_assignment)
+          .where("asset_type_id = ?", params[:id])
+          .paginate(:page => params[:page])
         @employees = getEmployeesInfoMap
         format.html
         format.json { render json: @assets }

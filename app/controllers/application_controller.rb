@@ -24,5 +24,4 @@ class ApplicationController < ActionController::Base
       end
       return employeesMap
     end
-    
 end
