@@ -1,5 +1,6 @@
-
-	<div class="row-fluid big-spacer">
+<h3 class="heading">Asset Types</h3>
+	<div class="row-fluid">
+		<ul class="thumbnails">
 		<%= render(
 			partial: 'asset_types/asset_type', 
 			object: find_asset_type("Laptop", @asset_types), 
@@ -16,8 +17,9 @@
 			partial: 'asset_types/asset_type', 
 			object: find_asset_type("Workstation", @asset_types), 
 			locals: { img_url: "asset_types/workstation-icon.png"}) %>
+			</ul>
 	</div>
-	<div class="row-fluid big-spacer">
+	<div class="row-fluid">
 		<%= render(
 			partial: 'asset_types/asset_type', 
 			object: find_asset_type("Data Card", @asset_types), 

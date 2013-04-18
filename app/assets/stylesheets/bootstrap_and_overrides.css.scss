@@ -177,9 +177,21 @@ label.mandatory:after {
   }
 }
 
-
 .by-employee {
   margin-top: 20px;
 }
 
-
+.asset-composite {
+  padding-top: 20px;
+  a { 
+    text-decoration: none; 
+    height: 180px;
+  }
+  
+  .title {
+    color: #666666;
+    font-size: 15px;
+    padding: 5px 0;
+    font-weight: bold
+  }
+}

@@ -1,8 +1,6 @@
-<div class="span3">
-	<center>
-		<%=asset_type.name%>
-		<br/>
-		<%= link_to image_tag(img_url), assets_asset_type_path(asset_type) %>
-		<br/>	
-	</center>
-</div>
+<li class="span3 asset-composite">
+	<a href="<%= assets_asset_type_path(asset_type) %>" class="thumbnail text-center">
+		<div><%= image_tag(img_url) %></div>
+		<div class="title"><%=asset_type.name%></div>
+	</a>
+</li>
