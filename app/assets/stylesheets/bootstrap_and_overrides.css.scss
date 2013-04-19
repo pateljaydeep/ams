@@ -1,10 +1,6 @@
 @import "bootstrap";
 @import "bootstrap-responsive";
 
-.big-spacer {  margin-top: 100px; }
-.medium-spacer {  margin-top: 50px; }
-.small-spacer {  margin-top: 10px; }
-
 body { 
   color: #444444;
   font: 13px Tahoma,Geneva,sans-serif;
@@ -15,13 +11,6 @@ body {
 .body {
   background: white;
   min-height: 850px;
-  //background: -moz-linear-gradient(left,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 4%); /* FF3.6+ */
-  //background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.65)), color-stop(4%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
-  //background: -webkit-linear-gradient(left,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 2%); /* Chrome10+,Safari5.1+ */
-  //background: -o-linear-gradient(left,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 4%); /* Opera 11.10+ */
-  //background: -ms-linear-gradient(left,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 4%); /* IE10+ */
-  //background: linear-gradient(to right,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 4%); /* W3C */
-  //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
 } 
 
 .navbar {
@@ -95,19 +84,47 @@ body {
   padding-top: 20px;
 }
 
-#assetShowBodyHeading{
-  padding-top: 50px;
+.asset {
+  overflow: hidden;
+  
+  .col {
+    border-right:2px solid #C8C8C8;
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+    font-size: 14px;
+    
+    .asset-label {
+      font-weight: bold;
+      font-size: 15px;
+      display: block;
+      padding-bottom: 5px;
+    }
+    
+    > div {
+      padding: 6px 0;
+    }
+  }
+  .first {
+    padding-left: 10px;
+  }
+  .last {
+    border-right:none;
+  }
 }
 
-#assetShowBodyHeading{
-  padding-top: 50px;
-  border-bottom-style:solid;
-  margin-bottom: 20px;
+.links {
+  margin-top: 10px;
+  padding: 20px 0 0 10px;
+  border-top: 1px solid #C8C8C8;
 }
 
-#assetShowBodyFirstPart{
-  border-right-style:solid;
-  min-height: 180px;
+@media (max-width: 767px) {
+  .asset {
+    .col {
+      border-right:none;
+      padding-left: 10px;
+    }
+  }
 }
 
 @media (min-width: 1200px) {
@@ -120,6 +137,15 @@ body {
   border-bottom: 5px solid #0082C8;
   margin-bottom: 30px;
   margin-top: 40px;
+  
+  .show {
+    position: relative;
+    
+    .asset-type {
+      position: absolute;
+      right: 0;
+    }
+  }
 }
 
 .actions {

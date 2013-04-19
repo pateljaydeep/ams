@@ -13,7 +13,7 @@
 <div class="row-fluid">
   <div class="field span4">
     <%= f.label :asset_id, class: "mandatory" %>
-    <%= f.text_field :asset_id, class: "input-block-level", placeholder: "e.g. RDEN123" %>
+    <%= f.text_field :asset_id, class: "input-block-level", placeholder: "e.g. RDEN123", maxlength: 20 %>
   </div>
   <div class="field span4">
     <%= f.label :asset_type_id %>
@@ -21,7 +21,7 @@
   </div>
   <div class="field span4">
     <%= f.label :serial_number, class: "mandatory" %>
-    <%= f.text_field :serial_number, class: "input-block-level", placeholder: "e.g. HP1234X45" %>
+    <%= f.text_field :serial_number, class: "input-block-level", placeholder: "e.g. HP1234X45", maxlength: 25 %>
   </div>
 </div>
 <div class="row-fluid">
@@ -39,41 +39,41 @@
   </div>
   <div class="field span4">
     <%= f.label :operating_system %>
-    <%= f.text_field :operating_system, class: "input-block-level", placeholder: "e.g. Windows 7 or XP" %>
+    <%= f.text_field :operating_system, class: "input-block-level", placeholder: "e.g. Windows 7 or XP", maxlength: 15 %>
   </div>
 </div>
 <div class="row-fluid">
   <div class="field span12">
     <%= f.label :description %>
-    <%= f.text_area :description, rows: 3, class: "input-block-level" %>
+    <%= f.text_area :description, rows: 3, class: "input-block-level"%>
   </div>
 </div>
 <div class="row-fluid">
   <div class="field span4">
     <%= f.label :manufacturer %>
-    <%= f.text_field :manufacturer, class: "input-block-level", placeholder: "e.g. HP, DELL" %>
+    <%= f.text_field :manufacturer, class: "input-block-level", placeholder: "e.g. HP, DELL", maxlength: 20 %>
   </div>
   <div class="field span4">
     <%= f.label :make_year, class: "mandatory" %>
-    <%= f.number_field :make_year, class: "input-block-level", placeholder: "e.g. 2012" %>
+    <%= f.text_field :make_year, class: "input-block-level", placeholder: "e.g. 2012", maxlength: 4 %>
   </div>
   <div class="field span4">
     <%= f.label :model %>
-    <%= f.text_field :model, class: "input-block-level", placeholder: "e.g. 8470p" %>
+    <%= f.text_field :model, class: "input-block-level", placeholder: "e.g. 8470p", maxlength: 15 %>
   </div>
 </div>
 <div class="row-fluid">
   <div class="field span4">
     <%= f.label :asset_image %>
-    <%= f.text_field :asset_image, class: "input-block-level", placeholder: "e.g. /hp8470p.jpg" %>
+    <%= f.text_field :asset_image, class: "input-block-level", placeholder: "e.g. /hp8470p.jpg", maxlength: 25 %>
   </div>
   <div class="field span4">
     <%= f.label :asset_documents %>
-    <%= f.text_field :asset_documents, class: "input-block-level", placeholder: "e.g. assignment.zip" %>
+    <%= f.text_field :asset_documents, class: "input-block-level", placeholder: "e.g. assignment.zip", maxlength: 25 %>
   </div>
   <div class="field span4">
     <%= f.label :display_size %>
-    <%= f.text_field :display_size, class: "input-block-level", placeholder: "e.g 17"%>
+    <%= f.text_field :display_size, class: "input-block-level", placeholder: "e.g 17", maxlength: 10 %>
   </div>
 </div>
   <div class="actions">

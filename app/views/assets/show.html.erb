@@ -2,69 +2,47 @@
 	<%= notice %>
 </p>
 
-<div class="row-fluid">
-	<div class="span10"></div>
-	<div class="span2">
-		<%= link_to 'Back To Listing >>', assets_path %>
+<h3 class="heading">
+	<div class="show">
+		<span><%= @asset.asset_id %></span>
+		<span class="asset-type"><%= @asset.asset_type.name %></span>
+	</div>
+</h3>
+
+<div class="asset row-fluid">
+	<div class="col first span4">
+		<div>
+			<span class="asset-label">Manufacturer</span>
+			<span><%= @asset.manufacturer %></span>
+		</div>
+		<div>
+			<span class="asset-label">Description</span>
+			<span><%= @asset.description %></span>
+		</div>
+		<div>
+			<span class="asset-label">Serial#</span>
+			<span><%= @asset.serial_number %></span>
+		</div>
+	</div>
+	<div class="col span4">
+		<div>
+			<span class="asset-label">Purchase date</span>
+			<span><%= @asset.purchase_date %></span>
+		</div>
+		<div>
+			<span class="asset-label"><%= @asset.asset_assignment.nil? ? 'Asset Status' : 'Assigned to' %></span>
+			<span><%= @asset.asset_assignment.nil? ? 'NOT ASSIGNED' : @asset.asset_assignment.assignee_name %></span>
+		</div>
+		<div>
+			<span class="asset-label">Documents</span>
+			<span><%= @asset.asset_documents %></span>
+		</div>
+	</div>
+	<div class="col last span4 text-center">
+		<%= Rails.application.assets.find_asset(@asset.asset_image) ? image_tag(@asset.asset_image) : image_tag('asset_types/notebook-icon.png')%>
 	</div>
 </div>
 
-
-<div class="row-fluid">
-	<div class="span10"></div>
-	<div class="span2">
-		<%= link_to 'Edit', edit_asset_path(@asset)%>
-	</div>
+<div class="links row-fluid">
+	&raquo; <%= link_to 'Edit', edit_asset_path %>
 </div>
-
-<div class="row-fluid" id="assetShowBodyHeading">
-	<div class="span10">
-		<h1><%= @asset.asset_id %><h1>
-	</div>
-	<div class="span2">
-		<h2><%= @asset.asset_type.name %></h2>
-	</div>
-</div>
-
-
-
-<div class="row-fluid">
-	<div class="span4" id="assetShowBodyFirstPart">
-		<p>
-			<b>Manufacturer:</b>
-			<%= @asset.manufacturer %>
-		</p>
-		<p>
-			<b>Description:</b>
-			<%= @asset.description %>
-		</p>
-		<p>
-			<b>Serial number:</b>
-			<%= @asset.serial_number %>
-		</p>
-
-	</div>
-	<div class="span4">
-		<p>
-			<b>Purchase date:</b>
-			<%= @asset.purchase_date %>
-		</p>
-		<p>
-			<%if @asset.asset_assignment.nil?%>
-			  <b>Asset Status:</b>
-			  NOT ASSIGNED
-			<%else%>
-			  <b>Assigned to:</b>
-			  <%= @asset.asset_assignment.assignee_name%>
-			<%end%>
-		</p>
-		<p>
-			<b>Documents Ref:</b>
-			<%= @asset.asset_documents %>
-		</p>
-	</div>
-	<div class="span4">
-		<img src="<%= @asset.asset_image %>" />
-	</div>
-</div>
-
