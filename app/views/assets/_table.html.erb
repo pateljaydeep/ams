@@ -4,7 +4,7 @@
 <table class="table table-hover">
 	<thead>
 		<tr>
-			<th class="asset_type">Type</th>
+			<th class="asset_type first">Type</th>
 			<th class="description hidden-phone">Description</th>
 			<th class="mfg hidden-phone">Mfg.</th>
 			<th class="serial">Serial #</th>
@@ -14,7 +14,7 @@
 	<tbody>
 		<% @assets.each do |asset| %>
 		<tr url="<%= asset_path(asset) %>">
-			<td class="clickable"><%= asset.asset_type.name %></td>
+			<td class="clickable first"><%= asset.asset_type.name %></td>
 			<td class="clickable hidden-phone"><%= asset.description %></td>
 			<td class="clickable hidden-phone"><%= asset.manufacturer %></td>
 			<td class="clickable"><%= asset.serial_number %></td>
@@ -39,14 +39,15 @@
 		<% end %>
 	</tbody>
 	<tfoot>
-		<tr>
-			<td colspan="5">
-				<span class="page-size">
+		<tr class="footer">
+			<td colspan="1" class="first">
 				<%= select_tag(
 					:per_page,
 					options_for_select([10,20,50], params[:per_page] == nil ? 10 : params[:per_page]),
 					onchange: "if(this.value){window.location='?per_page='+this.value;}") %>
-				</span>
+			</td>
+			<td colspan="2" class="hidden-phone"></td>
+			<td colspan="2">
 				<span>
 				<%= will_paginate(
 					@assets, 

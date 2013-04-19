@@ -186,6 +186,14 @@ label.mandatory:after {
     border-left: 1px solid #fff;
   }
   
+  .first {
+    border-left: none;
+  }
+  
+  .footer td {
+    border-left: none;
+  }
+  
   .clickable {
     cursor: hand;
     cursor: pointer;
@@ -226,11 +234,7 @@ label.mandatory:after {
   margin: 5px 0;
 }
 
-.page-size {
+#per_page {  
+  width: 60px;
   margin: 5px 0;
-  position: absolute;
-  
-  select {
-    width: 60px;
-  }
 }
