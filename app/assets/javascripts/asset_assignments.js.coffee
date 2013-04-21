@@ -9,7 +9,7 @@ $(document).ready ->
       $(this).siblings(".assignAsset").hide()
       $(this).siblings(".deleteAsset").hide()
       
-  $("input#assigned_date").datepicker()
+  $("input#assigned_date").datepicker({format:'dd/mm/yyyy'})
   $("a.assignAsset").click ->
     $("#assignAssetButton").show()
     $("div#assetAssignmentSuccess").hide()

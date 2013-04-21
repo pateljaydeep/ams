@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $(document).ready ->
-  $("input#returned_date").datepicker()
+  $("input#returned_date").datepicker({format:'dd/mm/yyyy'})
   $("a.retainAsset").click ->
     $("#retainAssetButton").show()
     $("div#assetRetainmentSuccess").hide()
@@ -13,7 +13,13 @@ $(document).ready ->
     $("span#assetSerialNoToBeRetained").text($(this).parent().siblings(".serialNo").text())
     $("span#assetAssignedEmployeeName").text($(this).siblings("input.assigneeName").val())
     $("span#assetAssignedEmployeeId").text($(this).siblings("input.assigneeId").val())
-    $("span#assetAssignedDate").text($(this).siblings("input.assignedDate").val())
+    assignedDate = $(this).siblings("input.assignedDate").val()
+    assignedDateArr = assignedDate.split("-")
+    if(assignedDateArr.length == 3)
+      assignedDateFormatted = assignedDateArr[2]+"/"+assignedDateArr[1]+"/"+assignedDateArr[0]
+    else
+      assignedDateFormatted = assignedDate
+    $("span#assetAssignedDate").text(assignedDateFormatted)
     $("input#retain_asset_id").val($(this).siblings(".assetId").val())
     $("#retainAssetButton").click ->
       $(this).hide()
