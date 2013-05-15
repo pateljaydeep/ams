@@ -3,7 +3,9 @@ class AssetsController < ApplicationController
   # GET /assets.json
   def index
     page "asset"
-    @assets = Asset.includes(:asset_type, :asset_assignment).paginate(page: params[:page], per_page: params[:per_page])
+    @assets = Asset.includes(:asset_type, :asset_assignment)
+    .where("assets.retired = 'f'")
+    .paginate(page: params[:page], per_page: params[:per_page])
     @employees = getEmployeesInfoMap
     respond_to do |format|
       format.html # index.html.erb
@@ -16,7 +18,7 @@ class AssetsController < ApplicationController
   def unassigned
     page "allocations"
     @assets = Asset.joins("left outer join asset_assignments aa on assets.id = aa.asset_id")
-        .where("aa.asset_id is null")
+        .where("aa.asset_id is null and assets.retired = 'f'")
         .paginate(page: params[:page], per_page: params[:per_page])
     @employees = getEmployeesInfoMap
     respond_to do |format|
@@ -109,6 +111,24 @@ class AssetsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to assets_url }
       format.json { head :no_content }
+    end
+  end
+  
+  def retire 
+    @asset = Asset.find(params[:id])
+    
+    logger.info("Asset id is #{params[:id]}")
+    
+    @asset.retired = true
+    
+    respond_to do |format|
+      if @asset.save
+        format.html { redirect_to assets_url }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to home_path, notice: 'Asset can not be retired.' }
+        format.json { render json: @asset.errors, status: :unprocessable_entity }
+      end
     end
   end
 end

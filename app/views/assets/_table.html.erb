@@ -6,7 +6,7 @@
 		<tr>
 			<th class="asset_type first">Type</th>
 			<th class="description hidden-phone">Description</th>
-			<th class="mfg hidden-phone">Mfg.</th>
+			<th class="model hidden-phone">Model</th>
 			<th class="serial">Serial #</th>
 			<th class="action">Action</th>
 		</tr>
@@ -16,12 +16,12 @@
 		<tr url="<%= asset_path(asset) %>">
 			<td class="clickable first"><%= asset.asset_type.name %></td>
 			<td class="clickable hidden-phone"><%= asset.description %></td>
-			<td class="clickable hidden-phone"><%= asset.manufacturer %></td>
+			<td class="clickable hidden-phone"><%= asset.model %></td>
 			<td class="clickable"><%= asset.serial_number %></td>
 			<td>
 				<%= link_to raw('<i class="icon-edit"></i>'), edit_asset_path(asset)%>
 				<%= link_to raw('<i class="icon-user"></i>'), asset, "id" => "retainAsset#{asset.id.to_s}", "class" => "retainAsset", "data-toggle" => "modal", "role" => "button", "href" => "#retainAssetDialog" %>
-				<%= link_to raw('<i class="icon-trash"></i>'), asset, "id" => "deleteAsset#{asset.id.to_s}", "class" => "deleteAsset", method: :delete, data: { confirm: 'Are you sure?' } %>
+				<%= link_to raw('<i class="icon-trash"></i>'), retire_asset_path(asset), "id" => "deleteAsset#{asset.id.to_s}", "class" => "deleteAsset", method: :delete, data: { confirm: 'Are you sure?' } %>
 				<%= link_to raw('<i class="icon-plus-sign"></i>'), asset, "id" => "assignAsset#{asset.id.to_s}", "class" => "assignAsset", "data-toggle" => "modal", "role" => "button", "href" => "#assignAssetDialog" %>
 				<%= hidden_field :asset, asset.id.to_s, "value" => asset.id.to_s, "class" => "assetId"  %>
 				<%= hidden_field :asset, "#{asset.id.to_s}#{asset.serial_number}", "value" => asset.asset_assignment.nil?, "class" => "isAssetUnassigned"  %>

@@ -13,6 +13,7 @@ Ams::Application.routes.draw do
   resources :assets do
     get :unassigned, on: :collection
     get :by_employee, on: :collection
+    delete :retire, on: :member
   end
   resources :asset_types do 
     get :assets, on: :member

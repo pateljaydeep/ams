@@ -8,7 +8,7 @@
 
 AssetType.delete_all
 AssetType.create(name: "Laptop")
-AssetType.create(name: "Workstation")
+AssetType.create(name: "Workstation / Desktop")
 AssetType.create(name: "Server")
 AssetType.create(name: "Network Devices")
 AssetType.create(name: "Communication Equipments")
@@ -20,7 +20,8 @@ AssetType.create(name: "Projector")
 AssetType.create(name: "Data Card")
 AssetType.create(name: "Mobile Phone")
 AssetType.create(name: "Laptop Charger")
-AssetType.create(name: "Laptop Bag")
 AssetType.create(name: "VGA Connector")
 AssetType.create(name: "Printer")
 AssetType.create(name: "Media")
+AssetType.create(name: "Docking Station")
+AssetType.create(name: "Docking Station Charger")

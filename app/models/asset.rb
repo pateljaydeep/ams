@@ -1,5 +1,5 @@
 class Asset < ActiveRecord::Base
-  attr_accessible :asset_documents, :asset_id, :asset_type_id, :asset_image, :description, :display_size, :make_year, :manufacturer, :model, :operating_system, :purchase_date, :release_date, :serial_number
+  attr_accessible :asset_documents, :asset_id, :asset_type_id, :asset_image, :description, :display_size, :make_year, :manufacturer, :model, :operating_system, :purchase_date, :release_date, :serial_number, :retired
   self.per_page = 10
   
   validates :asset_id, :presence => true, length: { maximum: 20}

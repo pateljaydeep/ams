@@ -22,7 +22,7 @@ class AssetTypesController < ApplicationController
     else
       respond_to do |format|
         @assets = Asset.includes(:asset_type, :asset_assignment)
-          .where("asset_type_id = ?", params[:id])
+          .where("asset_type_id = ? and assets.retired = 'f'", params[:id])
           .paginate(page: params[:page], per_page: params[:per_page])
         @employees = getEmployeesInfoMap
         format.html
