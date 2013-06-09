@@ -6,7 +6,8 @@ gem 'rails', '3.2.12'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development, :test do
-  gem 'sqlite3'
+  gem 'mysql2'
+  gem 'activerecord-sqlite3-adapter'
 end
 
 group :test do
@@ -54,3 +55,7 @@ gem 'bootstrap-sass'
 
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
+
+gem 'capistrano';
+
+gem 'rvm-capistrano'
