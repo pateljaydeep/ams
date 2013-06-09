@@ -55,6 +55,6 @@ gem 'bootstrap-sass'
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
 
-gem 'capistrano';
+gem 'capistrano', '~> 2.14.2'
 
 gem 'rvm-capistrano'
