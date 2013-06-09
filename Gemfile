@@ -7,7 +7,6 @@ gem 'rails', '3.2.12'
 
 group :development, :test do
   gem 'mysql2'
-  gem 'activerecord-sqlite3-adapter'
 end
 
 group :test do
