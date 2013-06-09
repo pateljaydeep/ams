@@ -11,7 +11,7 @@ development:
   timeout: 5000
   username: ams_dev_mgr
   password: ams_dev_mgr
-  socket: /var/run/mysqld.sock
+  socket: /var/run/mysqld/mysqld.sock
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
