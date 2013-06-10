@@ -4,8 +4,11 @@ set :domain, "jdpatel.ket.mygazoo.com"
 set :application, "ams"
 set :deploy_to, "/home/#{user}/cap_test/apps/ams"
 
-require "rvm/capistrano"
+require "bundler/capistrano"
 
+$:.unshift(File.expand_path("./lib", ENV["rvm_path"]))
+require "rvm/capistrano"
+set :rvm_ruby_string, "1.9.2@ams"
 set :rvm_type, :user
 
 set :default_environment, {
