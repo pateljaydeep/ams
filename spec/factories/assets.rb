@@ -6,7 +6,7 @@ FactoryGirl.define do
     a.asset_id 'asset id'
     a.purchase_date Time.now
     a.serial_number '1234'
-    a.make_year 2013
+    a.make_year Time.now
     a.description 'This is description'
     a.display_size 15
     a.manufacturer 'HP'

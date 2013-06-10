@@ -5,7 +5,7 @@ class Asset < ActiveRecord::Base
   validates :asset_id, :presence => true, length: { maximum: 20}
   validates :purchase_date, :presence => true
   validates :serial_number, :presence => true, length: { maximum: 25}
-  validates :make_year, :presence => true, length: { maximum: 4}, numericality: true
+  validates :make_year, :presence => true
   validates :description, length: {maximum: 200}
   validates :display_size, length: {maximum: 10}
   validates :manufacturer, length: {maximum: 20}
