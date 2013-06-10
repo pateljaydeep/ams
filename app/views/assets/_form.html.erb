@@ -78,6 +78,12 @@
     <%= f.text_field :display_size, class: "input-block-level", placeholder: "e.g 17", maxlength: 10 %>
   </div>
 </div>
+<div>
+  <div>
+     <%= f.label :asset_bounded %>
+     <%= f.check_box :asset_bounded, class: "input-block-level" %>
+  </div>
+</div>
   <div class="actions">
     <%= f.submit "Save", class: "btn btn-primary" %>
   </div>
