@@ -55,6 +55,13 @@ gem 'bootstrap-sass'
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
 
+group :test, :development do
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
+
 gem 'capistrano', '~> 2.14.2'
 
 gem 'rvm-capistrano'
