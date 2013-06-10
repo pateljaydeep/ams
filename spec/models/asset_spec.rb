@@ -49,10 +49,9 @@ describe Asset do
     it "validates mandatory field operating_system" do 
       FactoryGirl.build(:asset, operating_system: 'a'*16).should_not be_valid
     end
- end
- context "make year type" do
-   it "cheks make year is date" do 
-     FactoryGirl.build(:asset, make_year: Time.now).should be_valid
-   end
+
+    it "validates bounded flag" do 
+      FactoryGirl.build(:asset, bounded: nil).should_not be_valid
+    end
  end
 end

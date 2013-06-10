@@ -55,7 +55,9 @@
   </div>
   <div class="field span4">
     <%= f.label :make_year, class: "mandatory" %>
-    <%= f.text_field :make_year, class: "input-block-level", placeholder: "e.g. 2012", maxlength: 4 %>
+    <div class="input-append date" id="make_year">
+      <%= f.text_field :make_year, readonly: 'true', class: "input-block-level" %>
+    </div>
   </div>
   <div class="field span4">
     <%= f.label :model %>
