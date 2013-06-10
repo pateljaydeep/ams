@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130515084013) do
+ActiveRecord::Schema.define(:version => 20130610071209) do
 
   create_table "asset_allocation_histories", :force => true do |t|
     t.string   "assignee_id"
@@ -49,12 +49,12 @@ ActiveRecord::Schema.define(:version => 20130515084013) do
     t.string   "asset_documents"
     t.string   "serial_number"
     t.string   "model"
-    t.integer  "make_year"
     t.string   "display_size"
     t.string   "operating_system"
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
     t.boolean  "retired",          :default => false
+    t.date     "make_year"
   end
 
 end

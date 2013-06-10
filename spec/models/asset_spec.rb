@@ -30,14 +30,6 @@ describe Asset do
       FactoryGirl.build(:asset, serial_number: 'a'*26).should_not be_valid
     end
 
-    it "validates mandatory field make year" do 
-      FactoryGirl.build(:asset, make_year: '1'*5).should_not be_valid
-    end
-
-    it "validates mandatory field make year" do 
-      FactoryGirl.build(:asset, make_year: 'a').should_not be_valid
-    end
-
     it "validates mandatory field description" do 
       FactoryGirl.build(:asset, description: 'a'*201).should_not be_valid
     end
@@ -57,5 +49,10 @@ describe Asset do
     it "validates mandatory field operating_system" do 
       FactoryGirl.build(:asset, operating_system: 'a'*16).should_not be_valid
     end
+ end
+ context "make year type" do
+   it "cheks make year is date" do 
+     FactoryGirl.build(:asset, make_year: Time.now).should be_valid
+   end
  end
 end
