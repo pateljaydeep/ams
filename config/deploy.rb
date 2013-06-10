@@ -4,20 +4,17 @@ set :domain, "jdpatel.ket.mygazoo.com"
 set :application, "ams"
 set :deploy_to, "/home/#{user}/cap_test/apps/ams"
 
-require "bundler/capistrano"
-
-$:.unshift(File.expand_path("./lib", ENV["rvm_path"]))
 require "rvm/capistrano"
-set :rvm_ruby_string, "1.9.2@ams"
+set :rvm_ruby_string, "ruby-1.9.3-p327@ams"
 set :rvm_type, :user
 
-set :default_environment, {
-  'PATH' => "/home/#{user}/.rvm/bin:/home/#{user}/.rvm/gems/ruby-1.9.3-p327@global/bin:$PATH",
-  'RUBY_VERSION' => "ruby-1.9.3-p327",
-  'GEM_HOME' => "/home/#{user}/.rvm/gems/ruby-1.9.3-p327@global",
-  'GEM_PATH' => "/home/#{user}/.rvm/gems/ruby-1.9.3-p327:/home/jpatel/.rvm/gems/ruby-1.9.3-p327@global",
-  'BUNDLE_PATH' => "/home/#{user}/.rvm/gems/ruby-1.9.3-p327:/home/jpatel/.rvm/gems/ruby-1.9.3-p327@global"
-}
+# set :default_environment, {
+#   'PATH' => "/home/#{user}/.rvm/bin:/home/#{user}/.rvm/gems/ruby-1.9.3-p327@global/bin:$PATH",
+#   'RUBY_VERSION' => "ruby-1.9.3-p327",
+#   'GEM_HOME' => "/home/#{user}/.rvm/gems/ruby-1.9.3-p327@global",
+#   'GEM_PATH' => "/home/#{user}/.rvm/gems/ruby-1.9.3-p327:/home/jpatel/.rvm/gems/ruby-1.9.3-p327@global",
+#   'BUNDLE_PATH' => "/home/#{user}/.rvm/gems/ruby-1.9.3-p327:/home/jpatel/.rvm/gems/ruby-1.9.3-p327@global"
+# }
 
 set :scm, :git
 set :repository,  "git://github.com/pateljaydeep/ams.git"
