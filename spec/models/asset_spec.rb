@@ -50,8 +50,8 @@ describe Asset do
       FactoryGirl.build(:asset, operating_system: 'a'*16).should_not be_valid
     end
 
-    it "validates bounded flag" do 
-      FactoryGirl.build(:asset, bounded: nil).should_not be_valid
+    it "validates asset bounded flag" do 
+      FactoryGirl.build(:asset, asset_bounded: nil).should_not be_valid
     end
  end
 end

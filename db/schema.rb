@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130610071209) do
+ActiveRecord::Schema.define(:version => 20130610161121) do
 
   create_table "asset_allocation_histories", :force => true do |t|
     t.string   "assignee_id"
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(:version => 20130610071209) do
     t.datetime "updated_at",                          :null => false
     t.boolean  "retired",          :default => false
     t.date     "make_year"
+    t.boolean  "bounded",          :default => false
+    t.boolean  "asset_bounded",    :default => false
   end
 
 end

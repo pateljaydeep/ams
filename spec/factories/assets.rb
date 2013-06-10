@@ -12,6 +12,7 @@ FactoryGirl.define do
     a.manufacturer 'HP'
     a.model 'TEST-123'
     a.operating_system 'Windows'
+    a.asset_bounded 't' 
     # association :asset_type, factory: :asset_type
   end
 
