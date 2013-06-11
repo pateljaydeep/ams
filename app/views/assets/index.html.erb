@@ -1,2 +1,4 @@
 <h3 class="heading">Assets</h3>
 <%= render partial: "assets/table", object: @assets %>
+
+<%= link_to "Download as CSV", download_assets_path(format: :csv) %>

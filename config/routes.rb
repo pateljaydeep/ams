@@ -14,6 +14,7 @@ Ams::Application.routes.draw do
     get :unassigned, on: :collection
     get :by_employee, on: :collection
     delete :retire, on: :member
+    get :download, on: :collection
   end
   resources :asset_types do 
     get :assets, on: :member

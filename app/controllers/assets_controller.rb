@@ -12,7 +12,28 @@ class AssetsController < ApplicationController
       format.json { render json: @assets }
     end
   end
-  
+
+  def download
+    assets =  Asset.includes(:asset_type, :asset_assignment)
+    .where("assets.retired = 'f'")
+ 
+    output = CSV.generate do |csv|
+      csv << Asset.column_names
+      assets.each do |asset|
+        csv << asset.attributes.values_at(*Asset.column_names)
+      end
+    end
+
+    puts output
+    
+    respond_to do |format|
+      format.csv { send_data output,
+        type: 'text/csv; header=present',
+        disposition: "attachment",
+        filename: "assets.csv" }
+    end
+  end  
+
   # GET /assets/unassigned
   # GET /assets/unassigned.json
   def unassigned

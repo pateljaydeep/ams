@@ -13,7 +13,7 @@ FactoryGirl.define do
     a.model 'TEST-123'
     a.operating_system 'Windows'
     a.asset_bounded 't' 
-    # association :asset_type, factory: :asset_type
+    association :asset_type, factory: :asset_type
   end
 
 end
