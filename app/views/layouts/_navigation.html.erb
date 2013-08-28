@@ -12,7 +12,7 @@
 					<li><%= link_to "Create Asset", new_asset_path %></li>
 					<li><a href="#">Asset Types</a></li>
 					<li><a href="#">Asset States</a></li>
-					<li><a href="#">Asset Bulk upload</a></li>
+          <li><%= link_to "Assets Bulk Upload", new_asset_import_path %></li>
 				</ul>
 			</li>
 			<li class="dropdown <% if @page=="allocations" %>active<% end %>">
