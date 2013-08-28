@@ -25,5 +25,7 @@ Ams::Application.routes.draw do
     post 'login' => :create
     delete 'logout' => :destroy
   end
-  
+
+  resources :asset_imports
+
 end
