@@ -14,10 +14,10 @@
 	<tbody>
 		<% @assets.each do |asset| %>
 		<tr url="<%= asset_path(asset) %>">
-			<td class="clickable first"><%= asset.asset_type.name %></td>
+			<td class="clickable first assetType"><%= asset.asset_type.name %></td>
 			<td class="clickable hidden-phone"><%= asset.description %></td>
 			<td class="clickable hidden-phone"><%= asset.model %></td>
-			<td class="clickable"><%= asset.serial_number %></td>
+			<td class="clickable serialNo"><%= asset.serial_number %></td>
 			<td>
 				<%= link_to raw('<i class="icon-edit"></i>'), edit_asset_path(asset)%>
 				<%= link_to raw('<i class="icon-user"></i>'), asset, "id" => "retainAsset#{asset.id.to_s}", "class" => "retainAsset", "data-toggle" => "modal", "role" => "button", "href" => "#retainAssetDialog" %>
