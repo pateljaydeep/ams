@@ -11,7 +11,6 @@ class Asset < ActiveRecord::Base
   validates :manufacturer, length: {maximum: 20}
   validates :model , length: {maximum: 15}
   validates :operating_system, length: {maximum: 15}
-  validates :asset_bounded, :presence => true
 
   belongs_to :asset_type
   has_one :asset_assignment
