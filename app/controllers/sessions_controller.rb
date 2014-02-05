@@ -8,30 +8,24 @@ class SessionsController < ApplicationController
     userLoginId = params[:name]
     pwd = params[:password]
     authIssue = nil;
-    begin
-      response = RestClient.get("https://atlas:8443/atlas/rest/auth?user=#{userLoginId}&pwd=#{pwd}")
-      
-      jsonResp = JSON.parse response.body
-      
-      empId = jsonResp["id"]
-    rescue => e
-      puts('Exception during authentication ')
-      authIssue = true
-    end
+    empId = nil;
 
-    if userLoginId[0] != nil and empId != nil
-      authorizedRoles = ['admin', 'user-30', 'user-20', 'user-10']
-      if authorizedRoles.include? jsonResp["role"]
-        session[:user_id] = empId
-        session[:user_name] = jsonResp["name"]
-        redirect_to home_url
-      else
-        redirect_to login_url, alert: "Unauthorized Login"
-      end
-    elsif authIssue
-      redirect_to login_url, alert: "Unable to authenticate"
-    else
-      redirect_to login_url, alert: "Invalid user/password combination"
+    begin
+        ldap = Net::LDAP.new
+        ldap.host = "ldap.ketera.com"
+        ldap.port = "389"
+        ldap.auth "uid=#{userLoginId},ou=users,dc=ketera,dc=com", "#{pwd}"
+          
+        if ldap.bind
+          puts "Authentication successful"
+          session[:user_id] = userLoginId                                                                                 
+          session[:user_name] = userLoginId
+          redirect_to home_url
+        else
+          puts ldap.get_operation_result
+          authIssue = true
+          redirect_to login_url, alert: "Unauthorized Login"
+        end
     end
   end
 
