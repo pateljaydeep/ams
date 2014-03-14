@@ -67,3 +67,5 @@ gem 'capistrano', '~> 2.14.2'
 gem 'rvm-capistrano'
 
 gem 'roo'
+
+gem 'net-ldap'

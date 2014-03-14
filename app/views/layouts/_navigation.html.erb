@@ -12,7 +12,8 @@
 					<li><%= link_to "Create Asset", new_asset_path %></li>
 					<li><a href="#">Asset Types</a></li>
 					<li><a href="#">Asset States</a></li>
-          <li><%= link_to "Assets Bulk Upload", new_asset_import_path %></li>
+          			<li><%= link_to "Assets Bulk Upload", new_asset_import_path %></li>
+          			<li><%= link_to "Download as CSV", download_assets_path(format: :csv) %></li>
 				</ul>
 			</li>
 			<li class="dropdown <% if @page=="allocations" %>active<% end %>">
